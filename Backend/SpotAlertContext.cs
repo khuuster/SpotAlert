@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Backend.Controllers;
 using Microsoft.EntityFrameworkCore;
 
-namespace spotalert
+namespace Backend
 {
     public class SpotAlertContext : DbContext
     {

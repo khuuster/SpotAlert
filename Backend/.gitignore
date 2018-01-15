@@ -1,6 +1,5 @@
 bin
 obj
-FrontEnd/node_modules
 .vscode
 .vs
 node_modules
