@@ -16,11 +16,11 @@ namespace spotalert.Controllers
             if (_context.Users.Count() == 0) {
                 _context.Users.Add (new User ()
                {
-                   Id = 1, Name = "Bobby", Password = "1234", Coin = 400, Prize1 = "Write essay instead of take test or opposite",Prize2 = "Free Homework Pass", Prize3 = "", Prize4 = "", Prize5 = ""
+                   Id = 1, Name = "Bob", Password = "1234", Address = "123 Sesame St.", PhoneNumber = "123-432-2343"
                });
                
-            
             _context.SaveChanges();
+        }
         }
 
     [Route("api/users")]

@@ -1,7 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using User.Controllers;
-using Pet.Controllers;
+using spotalert.Controllers;
 
 namespace spotalert
 {
