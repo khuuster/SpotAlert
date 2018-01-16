@@ -9,8 +9,8 @@
 
 /* Background image */
 body {
-  margin-top: 50px !important; 
-  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vm8N8ry5eikbknln4/videoblocks-funny-pets-on-white-background_syhcsokre_thumbnail-full01.png");
+  margin-top: 50px !important;
+  background-image: url("dogbackground.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -23,41 +23,69 @@ body {
   position: relative;
 }
 
-/* Nav bar */
-.nav {
-  color: black;
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  margin: 20px 0;
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+}
+
+blockquote:before {
+  display: block;
+  padding-left: 25px;
+  content: "\201C";
+  font-size: 75px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: #7a7a7a;
+}
+
+.description {
+  margin: 9px;
+}
+
+blockquote cite {
+  color: #999999;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+blockquote cite:before {
+  content: "\2014 \2009";
+}
+
+.contact {
+  text-align: center;
+  padding: 8px 0 0 150px;
   text-transform: uppercase;
+  color: darkblue;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Nav bar */
-a.nav {
-  border-top: none;
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  margin: 10px 5px;
-  padding: 0px 10px;
-  text-decoration: none;
+.middleNav {
+  font-size: 12px;
 }
 
-/* Nav bar visited and active */
-.nav:visited:active {
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
+.number {
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: red;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
 }
 
-/* Nav bar on hover */
-.nav:hover {
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  cursor: cell;
-  text-decoration: underline;
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
 }
 
-.petContainer {
-  padding: 0 auto !important; 
+.navigation {
+  font-family: 'Istok Web', sans-serif;
+  text-transform: uppercase;
 }

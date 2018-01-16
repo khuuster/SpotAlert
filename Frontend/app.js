@@ -81,11 +81,23 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "petController"
     })
 
-    // ABOUT US
-    .state("about", {
-      url: "/about",
-      templateUrl: "./views/about.html",
+    // MISSION
+    .state("mission", {
+      url: "/mission",
+      templateUrl: "./views/mission.html",
     })       
+
+    // VISION
+    .state("vision", {
+      url: "/vision",
+      templateUrl: "./views/vision.html",
+    })
+
+    // VALUES
+    .state("values", {
+      url: "/values",
+      templateUrl: "./views/values.html",
+    })
 
     // CONTACT US
     .state("contact", {
