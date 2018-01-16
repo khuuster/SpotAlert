@@ -13,24 +13,24 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="dashboard">Dashboard </a></li>
-        <li><a ui-sref="lostPets">Lost Pets</a></li>
-        <li><a ui-sref="pets">My Pets </a></li>
-        <li class="active"><a ui-sref="petCreate">Add Pets <span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+        <li><a ui-sref="home" class="navigation">Home</a></li>
+        <li><a ui-sref="dashboard" class="navigation">Dashboard </a></li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pets <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a ui-sref="about">About Us</a></li>
-            <li><a ui-sref="contact">Contact Us</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a ui-sref="developers">Our Developers</a></li>
+            <li><a ui-sref="lostPets" class="navigation">Lost & Found</a></li>
+            <li><a ui-sref="pets" class="navigation">My Pets</a></li>
+            <li><a ui-sref="petCreate" class="navigation">Add Pets <span class="sr-only">(current)</span></a></li>
           </ul>
         </li>
       </ul>
+      <ul class="nav navbar-nav">
+        <li class="contact middleNav">Found a missing pet? <strong class="middleNav">Contact us immediately!</strong>
+        <p class="number">1-800-SPOT-PET</p></li>
+      </ul>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="account">Account</a></li>
-        <li><a ui-sref="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a ui-sref="account" class="navigation">Account</a></li>
+        <li><a ui-sref="logout" class="navigation"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

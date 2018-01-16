@@ -13,30 +13,38 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
-        <li><a ui-sref="lostPets">Lost Pets</a></li>
+        <li class="active"><a ui-sref="home" class="navigation">Home <span class="sr-only">(current)</span></a></li>
+        <li><a ui-sref="lostPets" class="navigation">Lost & Found</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a ui-sref="about">About Us</a></li>
-            <li><a ui-sref="contact">Contact Us</a></li>
+            <li><a ui-sref="mission" class="navigation">Mission</a></li>
+            <li><a ui-sref="vision" class="navigation">Vision</a></li>
+            <li><a ui-sref="values" class="navigation">Values</a></li>
             <li role="separator" class="divider"></li>
-            <li><a ui-sref="developers">Our Developers</a></li>
+            <li><a ui-sref="contact" class="navigation">Contact Us</a></li>
+            <li><a ui-sref="developers" class="navigation">Our Developers</a></li>
           </ul>
         </li>
       </ul>
+      <ul class="nav navbar-nav">
+        <li class="contact middleNav">Found a missing pet? <strong class="middleNav">Contact us immediately!</strong>
+        <p class="number">1-800-SPOT-PET</p></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="userCreate"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a ui-sref="userCreate" class="navigation"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a ui-sref="login" class="navigation"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container">
-  <div class="col-md-6 col-md-offset-3 text-center">
-    <h2>Mission</h2>
-    <h2>Vision</h2>
-    <h3>Found a Lost Pet?</h3>
-    <h4>Contact Us Immediately!</h4>
+  <div class="col-md-6 col-md-offset-3 text-center" style="margin-top: 30px">
+    <div>
+      <blockquote>
+        <p class="description">We are passionate about what can happen when we bring people and pets together. We are excited about how we can help pet owners with the use of our lost and found pet alert. We hope you will share our vision and help us to achieve our goals.</p>
+        <cite>SpotAlert</cite>
+      </blockquote>
+    </div>
   </div>
 </div>
