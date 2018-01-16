@@ -17,7 +17,7 @@ namespace Backend.Controllers
 
       if (_context.Pets.Count() == 0)
       {
-        _context.Pets.Add(new Pet() { Id = 1, Name = "Spot", Address = "2850 Redhill Ave.", PhoneNumber = "1234567890" });
+        _context.Pets.Add(new Pet() { Id = 1, Name = "Spot", Address = "2850 Redhill Ave.", PhoneNumber = "1234567890", Description = "Was wearing a blue collared shirt", OwnerId = 1});
 
         _context.SaveChanges();
       }

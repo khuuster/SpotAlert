@@ -17,7 +17,7 @@ namespace Backend.Controllers
 
       if (_context.Users.Count() == 0)
       {
-        _context.Users.Add(new User() { Id = 1, Name = "Bobby", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave."});
+        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName="Lee", Email="bobby@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave."});
 
         _context.SaveChanges();
       }
