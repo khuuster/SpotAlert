@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">SpotAlert</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="lostPets">Lost Pets</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="about">About Us</a></li>
+            <li><a ui-sref="contact">Contact Us</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a ui-sref="developers">Our Developers</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a ui-sref="userCreate"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="sr-only">(current)</span></a></li>        
+        <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <div class="col-md-5 col-md-offset-4">
+    <h1 class="head text-center">{{ heading }}</h1>
+    <h4 class="header text-center">{{ header }}</h4>
+  </div>
+  <div class="col-md-3 col-md-offset-5">
+    <form>
+      <div class="row">
+        <input class="form-control" type="text" placeholder="First Name" ng-model="user.firstName">
+        <p class="red-text" ng-show="firstNameReq">First Name Required</p>
+      </div>
+      <div class="row">
+        <input class="form-control" type="text" placeholder="Last Name" ng-model="user.lastName">
+        <p class="red-text" ng-show="lastNameReq">Last Name Required</p>
+      </div>
+      <div class="row">
+        <input class="form-control" type="email" placeholder="Email Address" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+        <p class="red-text" ng-show="emailReq">Email Address Required</p>
+      </div>
+      <div class="row">
+        <input class="form-control" type="password" placeholder="Password" ng-model="user.password">
+        <p class="red-text" ng-show="passwordReq">Invalid Password</p>
+      </div>
+      <div class="row">
+        <input class="form-control" type="password" placeholder="Confirm Password" ng-model="user.confirmPassword">
+        <p class="red-text" ng-show="passwordReq">Confirm Password</p>
+        <p class="red-text" ng-show="passwordError">Passwords do not match</p>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary btn-sm" ng-show="submitButton" ng-click="addUser(user)">Register</button>
+        <button class="btn btn-danger btn-sm" ng-show="submitButton" ui-sref="home">Cancel</button>
+        <button class="btn btn-success btn-sm" ng-show="!submitButton" ng-click="updateUser(user)">Update</button>
+        <button class="btn btn-danger btn-sm" ng-show="!submitButton" ui-sref="account">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

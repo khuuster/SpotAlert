@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+  cursor: crosshair;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Background image */
+body {
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vm8N8ry5eikbknln4/videoblocks-funny-pets-on-white-background_syhcsokre_thumbnail-full01.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Nav bar */
+.nav {
+  color: black;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+/* Nav bar */
+a.nav {
+  border-top: none;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 5px;
+  padding: 0px 10px;
+  text-decoration: none;
+}
+
+/* Nav bar visited and active */
+.nav:visited:active {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+/* Nav bar on hover */
+.nav:hover {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  cursor: cell;
+  text-decoration: underline;
+}

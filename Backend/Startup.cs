@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Backend
 {
     public class Startup
@@ -37,8 +36,15 @@ namespace Backend
             {
                 app.UseDeveloperExceptionPage();
             }
+            {
+                app.UseCors (builder => builder
+                .AllowAnyOrigin ()
+                .AllowAnyMethod ()
+                .AllowAnyHeader ()
+                .AllowCredentials ());
 
-            app.UseMvc();
+                app.UseMvc();
+            }
         }
     }
 }
