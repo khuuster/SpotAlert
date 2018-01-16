@@ -17,8 +17,7 @@ namespace Backend.Controllers
 
       if (_context.Pets.Count() == 0)
       {
-        _context.Pets.Add(new Pet() { Id = 1, Name = "Spot", Address = "2850 Redhill Ave.", PhoneNumber = "1234567890", Description = "Was wearing a blue collared shirt", OwnerId = 1});
-
+        _context.Pets.Add(new Pet() { Id = 1, Name = "Spot", Description = "Was wearing a blue collared shirt", Status = "lost" OwnerId = 1});
         _context.SaveChanges();
       }
     }
@@ -42,6 +41,50 @@ namespace Backend.Controllers
         }
       }
       return null;
+    }
+
+    //POST api/values
+    [HttpPost]
+    public Pet Post ([FromBody] Pet s)
+    {
+      s.Id = _context.Pets.Count()+1;
+      _context.Pets.Add(s);
+      _context.SaveChanges(); 
+      return s;
+    }
+
+    //PUT api/values/4
+    [HttpPut ("{id}")]
+    public Pet Put (int id, [FromBody] Pet pet)
+    {
+      foreach(Pet s in _context.Pets)
+      {
+        if(s.Id == id)
+        {
+          _context.Pets.Remove(s);
+          _context.SaveChanges();
+          _context.Pets.Add(pet);
+          _context.SaveChanges(); 
+          return pet;
+        }
+      }
+      return null; 
+    }
+
+    //DELETE api/values/5
+    [HttpDelete("{id}")]
+    public string Delete(int id)
+    {
+      foreach (Pet s in _context.Pets)
+      {
+        if (s.Id == id)
+        {
+          _context.Pets.Remove(s);
+          _context.SaveChanges();
+          return "deleted";
+        }
+      }
+      return "not found";
     }
   }
 }

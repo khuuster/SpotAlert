@@ -38,5 +38,14 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3 text-center">
     <h1>My Pets</h1>
+    <div class="container" ng-repeat="pet in myPets">
+        <h3>{{pet.name}}</h3>
+        <h5>{{pet.description}}</h5>
+        <h6>{{pet.status}}</h6>
+        <button class="btn btn-info" ng-click="editPet()">Edit</button>
+        <button class="btn btn-warning" ng-click="lost(pet)">Report 
+          Lost</button>
+    </div>
+
   </div>
 </div>

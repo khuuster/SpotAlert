@@ -17,9 +17,9 @@ namespace Backend.Controllers
 
       if (_context.Users.Count() == 0)
       {
-        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA"});
-        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA"});        
-        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA"});
+        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
+        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
+        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
 
         _context.SaveChanges();
       }
@@ -45,6 +45,50 @@ namespace Backend.Controllers
         }
       }
       return null;
+    }
+
+    //POST api/values
+    [HttpPost]
+    public User Post([FromBody] User s)
+    {
+      s.Id = _context.Users.Count() + 1;
+      _context.Users.Add(s);
+      _context.SaveChanges();
+      return s;
+    }
+
+    //PUT api/values/4
+    [HttpPut("{id}")]
+    public User Put(int id, [FromBody] User user)
+    {
+      foreach (User s in _context.Users)
+      {
+        if (s.Id == id)
+        {
+          _context.Users.Remove(s);
+          _context.SaveChanges();
+          _context.Users.Add(user);
+          _context.SaveChanges();
+          return user;
+        }
+      }
+      return null;
+    }
+
+    //DELETE api/values/5
+    [HttpDelete("{id}")]
+    public string Delete(int id)
+    {
+      foreach (User s in _context.Users)
+      {
+        if (s.Id == id)
+        {
+          _context.Users.Remove(s);
+          _context.SaveChanges();
+          return "deleted";
+        }
+      }
+      return "not found";
     }
   }
 }

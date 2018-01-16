@@ -9,6 +9,7 @@
 
 /* Background image */
 body {
+  margin-top: 50px !important; 
   background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vm8N8ry5eikbknln4/videoblocks-funny-pets-on-white-background_syhcsokre_thumbnail-full01.png");
   background-size: cover;
   background-position: center center;
@@ -55,4 +56,8 @@ a.nav {
   font-family: 'Montserrat', sans-serif;
   cursor: cell;
   text-decoration: underline;
+}
+
+.petContainer {
+  padding: 0 auto !important; 
 }
