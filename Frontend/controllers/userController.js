@@ -1,5 +1,12 @@
 app.controller("userController", function ($scope, $state, $stateParams, $http, userService) {
-
+ 
+  // loads messages to user dashboard
+  if (userService.currentUserReturn() != 0){
+    userService.getOwnerById(userService.currentUserReturn())
+    .then(function(response){
+      $scope.dashMessage = response.data; 
+    })
+  }
 
   // Get all user
   $scope.getUser = function () {

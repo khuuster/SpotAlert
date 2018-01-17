@@ -5,6 +5,11 @@ app.service("userService", function ($http) {
     return $http.get("http://localhost:5000/api/users");
   };
 
+  //GET USER FOR LOST PET 
+  this.getOwnerById = function(id){
+    return $http.get("http://localhost:5000/api/users/" + id);
+  }
+  
   // Get one by Id
   this.getUserById = function (id, cb) {
     if (id == "" || id == undefined || id == null) {

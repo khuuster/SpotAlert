@@ -14,6 +14,18 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     }, 500)
   }
 
+  //REPORTS LOST PET TO LIST OF LOST PETS
+  $scope.lost = function(pet){
+    petService.setCurrentLostPet(pet);
+    $state.go("lostUpdate");
+  }
+
+  //CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
+  $scope.report = function(){
+    
+        petService.updatePet(petService.returnLostPet().id)
+  }
+  
   // LOADS ALL PETS FOR CURRENT USER
   $scope.loadPets = function () {
     petService.getAllPets().then(
@@ -53,7 +65,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //GET OWNER FOR LOST PET
   $scope.getOwnerInfo = function () {
     var currentPet = petService.returnCurrentPet();
-    userService.getUserById(currentPet.ownerId).then(function (response) {
+    userService.getOwnerById(currentPet.ownerId).then(function (response) {
         $scope.owner = response.data;
       })
   }
