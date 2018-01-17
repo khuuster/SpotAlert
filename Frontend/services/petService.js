@@ -21,4 +21,18 @@ app.service("petService", function ($http) {
   this.returnCurrentPet = function(){
     return currentPet; 
   }
+
+  //sets current pet for report lost pet
+    var currentLostPet = null;
+  this.setCurrentLostPet = function(pet){
+    currentLostPet = pet; 
+  }
+//returns current lost pet
+  this.returnLostPet = function(){
+    return currentLostPet; 
+  }
+
+  //UPDATES PET STATUS AND KNOWN LOCATION
+  this.updatePet
+
 });
