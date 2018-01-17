@@ -1,5 +1,7 @@
 app.controller("userController", function ($scope, $state, $stateParams, $http, userService) {
 
+  $scope.
+
   // Get all user
   $scope.getUser = function () {
     userService.getUsers()
@@ -13,7 +15,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
   $scope.getUser();
 
   // Get one user by Id
-  if ($stateParams.id == "" || $stateParams.id == undefined || $stateParams.id == null) {
+  if (userService.currentUserReturn() == 0 || userService.currentUserReturn() == null) {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = true;
@@ -26,8 +28,8 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     });
   }
   else {
-    userService.getUserById($stateParams.id, function (user) {
-      $scope.user = user;
+    userService.getUserById(userService.currentUserReturn()).then(function(response){
+      $scope.user = response.data;
       $scope.submitButton = false;
       $scope.heading = "Update Account";
       $scope.profileNav = true;
@@ -35,7 +37,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.dashboard = true;
       $scope.lostpet = true;
       $scope.pets = true;
-    });
+    }) 
   };
 
   // If fields are empty error message in the user form validation (hidden as default)

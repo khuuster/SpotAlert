@@ -1,5 +1,6 @@
 app.controller("accountController", function ($scope, $state, $stateParams, $http, userService) {
 
+
   // loads the current user
   if (userService.currentUserReturn() == 0) {
     $state.go("home");
@@ -32,20 +33,18 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
   $scope.getUser();
 
   // Get one user by Id
-  if ($stateParams.id == "" || $stateParams.id == undefined || $stateParams.id == null) {
+  if (userService.currentUserReturn() == 0 || userService.currentUserReturn() == null) {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = true;
-      $scope.heading = "Create New User"
       $scope.profileNav = false;
       $scope.aboutus = false;
     })
   }
   else {
-    userService.getUserById($stateParams.id, function (user) {
+    userService.getUserById(userService.currentUserReturn() == 0, function (user) {
       $scope.user = user;
       $scope.submitButton = false;
-      $scope.heading = "Update User"
       $scope.profileNav = true;
       $scope.aboutus = true;
     });
