@@ -37,13 +37,17 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
       $scope.user = user;
       $scope.submitButton = true;
       $scope.heading = "Create New User"
-    });
+      $scope.profileNav = false;
+      $scope.aboutus = false;
+    })
   }
   else {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = false;
       $scope.heading = "Update User"
+      $scope.profileNav = true;
+      $scope.aboutus = true;
     });
   };
 

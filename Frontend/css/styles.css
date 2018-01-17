@@ -2,14 +2,14 @@
   box-sizing: border-box;
   cursor: crosshair;
   font-size: 14px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   margin: 0 auto;
   padding: 0;
 }
 
 /* Background image */
 body {
-  margin-top: 70px !important;
+  margin-top: 65px !important;
   background-image: url("dogbackground.png");
   background-size: cover;
   background-position: center center;
@@ -27,7 +27,7 @@ blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
   font-style: italic;
-  width: 500px;
+  width: 100%;
   margin: 0.25em 0;
   padding: 0.35em 40px;
   line-height: 1.45;
@@ -42,19 +42,18 @@ blockquote:before {
   font-size: 75px;
   position: absolute;
   left: -20px;
-  top: -20px;
+  top: -10px;
   color: #7a7a7a;
 }
 
 .description {
-  margin: 9px;
+  margin: 20px;
 }
 
 blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
-  margin-top: 5px;
 }
 
 blockquote cite:before {
@@ -81,6 +80,53 @@ blockquote cite:before {
   font-family: 'Nunito', sans-serif;
 }
 
+.num {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: .8px;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.redBkg {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(139, 0, 0, 0.7);
+  padding: 5px;
+}
+
+.heading {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  font-size: 26px;
+  padding-bottom: 10px;
+}
+
+.devs {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+}
+
+.name {
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.body {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.background {
+  background: rgba(247, 245, 245, 0.7);
+  padding-top: 15px;
+}
+
+.rows {
+  padding-bottom: 15px;
+}
+
 .navbar-brand {
   font-family: 'Poppins', sans-serif;
 }
@@ -92,4 +138,98 @@ blockquote cite:before {
 
 .red-text {
   color: red;
+}
+
+.login {
+  text-align: center;
+  font-size: 20px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+#signup {
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+
+@import "font-awesome.min.css";
+@import "font-awesome-ie7.min.css";
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
 }

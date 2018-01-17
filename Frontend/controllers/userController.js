@@ -18,7 +18,11 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.user = user;
       $scope.submitButton = true;
       $scope.heading = "Sign Up";
-      $scope.header = "Sign up to create a new account";
+      $scope.profileNav = false;
+      $scope.aboutus = false;
+      $scope.dashboard = false;
+      $scope.lostpet = false;
+      $scope.pets = false;
     });
   }
   else {
@@ -26,6 +30,11 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.user = user;
       $scope.submitButton = false;
       $scope.heading = "Update Account";
+      $scope.profileNav = true;
+      $scope.aboutus = true;
+      $scope.dashboard = true;
+      $scope.lostpet = true;
+      $scope.pets = true;
     });
   };
 
