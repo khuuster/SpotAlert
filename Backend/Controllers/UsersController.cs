@@ -17,9 +17,9 @@ namespace Backend.Controllers
 
       if (_context.Users.Count() == 0)
       {
-        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
-        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
-        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA" });
+        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA 92705" });
+        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave. Santa Ana, CA 92705" });
+        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1234", PhoneNumber = "1234567890", Address = "2850 Redhill Ave., Santa Ana, CA 92705" });
 
         _context.SaveChanges();
       }

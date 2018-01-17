@@ -37,17 +37,13 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
       $scope.user = user;
       $scope.submitButton = true;
       $scope.heading = "Create New User"
-      $scope.profileNav = false;
-      $scope.aboutus = false;
-    })
+    });
   }
   else {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
       $scope.submitButton = false;
       $scope.heading = "Update User"
-      $scope.profileNav = true;
-      $scope.aboutus = true;
     });
   };
 
@@ -85,6 +81,16 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
       $scope.emailReq = true;
     } else {
       $scope.emailReq = false;
+    };
+    if ($scope.user.address == "" || $scope.user.address == null) {
+      $scope.addressReq = true;
+    } else {
+      $scope.addressReq = false;
+    };
+    if ($scope.user.phoneNumber == "" || $scope.user.phoneNumber == null) {
+      $scope.phoneReq = true;
+    } else {
+      $scope.phoneReq = false;
     };
     if ($scope.user.password == "" || $scope.user.password == null) {
       $scope.passwordReq = true;

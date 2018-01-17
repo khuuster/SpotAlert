@@ -6,8 +6,19 @@ app.service("userService", function ($http) {
   };
 
   // Get one by Id
-  this.getUserById = function (id) {
-     return $http.get("http://localhost:5000/api/users/" + id)
+  this.getUserById = function (id, cb) {
+    if (id == "" || id == undefined || id == null) {
+      var user = {};
+      cb(user);
+    }
+    else {
+      $http.get("http://localhost:5000/api/users/" + id + "/")
+        .then(function (response) {
+          cb(response.data);
+        }, function (error) {
+          console.log(error);
+        });
+    };
   };
 
   // Create
@@ -17,14 +28,14 @@ app.service("userService", function ($http) {
 
   //SET OWNER ID
   var ownerId = null
-  this.setOwner = function(id){
-    ownerId = id; 
+  this.setOwner = function (id) {
+    ownerId = id;
   }
   //PUT TO SEND MESSAGE TO OWNER
   this.messageOwner = function (body) {
     return $http.put("http://localhost:5000/api/users/" + ownerId + "/", body);
   };
-  
+
   // Update
   this.putUser = function (id, user) {
     return $http.put("http://localhost:5000/api/users/" + id + "/", user);
@@ -36,7 +47,7 @@ app.service("userService", function ($http) {
   };
 
   // current user logged in, 0 means no one is logged on
-  var _currentUserId = 1;
+  var _currentUserId = 0;
 
   // Loads the current user by the id passed in
   this.setCurrentUser = function (id) {

@@ -79,31 +79,17 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Street Address</label>
-            <input placeholder="Street Address" rows="3" class="form-control">
-          </div>
-          <div class="row">
-            <div class="col-sm-4 form-group">
-              <label>City</label>
-              <input type="text" placeholder="City" class="form-control">
-            </div>
-            <div class="col-sm-4 form-group">
-              <label>State</label>
-              <input type="text" placeholder="State" class="form-control">
-            </div>
-            <div class="col-sm-4 form-group">
-              <label>Zip</label>
-              <input type="text" placeholder="Zip Code" class="form-control">
-            </div>
+            <label>Address</label> <span class="red-text" ng-show="addressReq">*</span>
+            <input placeholder="Street Address" rows="3" ng-model="user.address" class="form-control">
           </div>
           <div class="row">
             <div class="col-sm-6 form-group">
-              <label>Phone Number</label>
-              <input type="text" placeholder="Phone Number" class="form-control">
+              <label>Phone Number</label> <span class="red-text" ng-show="phoneReq">*</span>
+              <input type="text" placeholder="Phone Number" ng-model="user.phoneNumber "class="form-control">
             </div>
             <div class="col-sm-6 form-group">
               <label>Email Address</label> <span class="red-text" ng-show="emailReq">*</span>
-              <input type="text" placeholder="Email Address" class="form-control" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
+              <input type="email" placeholder="Email Address" class="form-control" ng-model="user.email" ng-change="user.email = (user.email | lowercase)">
             </div>
           </div>
           <button class="btn btn-danger btn-md pull-right" ng-show="submitButton" ui-sref="home">Cancel</button>

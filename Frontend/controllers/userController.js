@@ -42,8 +42,9 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
   $scope.firstNameReq = false;
   $scope.lastNameReq = false;
   $scope.emailReq = false;
+  $scope.phoneReq = false;
+  $scope.addressReq = false;
   $scope.passwordReq = false;
-  $scope.errorBorder = false;
 
   // If passwords do not match error message in the new user form (hidden as default)
   $scope.passwordError = false;
@@ -61,10 +62,8 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     // Checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
     if ($scope.user.firstName == "" || $scope.user.firstName == null) {
       $scope.firstNameReq = true;
-      $scope.errorBorder = true;
     } else {
       $scope.firstNameReq = false;
-      $scope.errorBorder = false;
     };
     if ($scope.user.lastName == "" || $scope.user.lastName == null) {
       $scope.lastNameReq = true;
@@ -76,17 +75,22 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     } else {
       $scope.emailReq = false;
     };
+    if ($scope.user.address == "" || $scope.user.address == null) {
+      $scope.addressReq = true;
+    } else {
+      $scope.addressReq = false;
+    };
+    if ($scope.user.phoneNumber == "" || $scope.user.phoneNumber == null) {
+      $scope.phoneReq = true;
+    } else {
+      $scope.phoneReq = false;
+    };
     if ($scope.user.password == "" || $scope.user.password == null) {
       $scope.passwordReq = true;
     } else {
       $scope.passwordReq = false;
     };
     if (($scope.user.password == "" || $scope.user.password == null) && ($scope.user.confirmPassword != "" || $scope.user.confirmPassword != null)) {
-      $scope.passwordError = true;
-    } else {
-      $scope.passwordError = false;
-    };
-    if (($scope.user.password != "" || $scope.user.password != null) && ($scope.user.confirmPassword == "" || $scope.user.confirmPassword == null)) {
       $scope.passwordError = true;
     } else {
       $scope.passwordError = false;
@@ -101,7 +105,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
     // If forms are not empty & passwords do match, register button will proceed to home-login view
     if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
-      $state.go("login");
+      $state.go("home");
     };
   };
 
@@ -146,7 +150,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
 
         // If forms are not empty & passwords do match, register button will proceed to home-login view
         if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
-          $state.go("account");
+          $state.go("dashboard");
         };
       }, function (error) {
         console.log(error);
@@ -173,7 +177,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     userService.getUsers()
       .then(function (response) {
         console.log("Users:", response);
-        // if user's email and password does not match database, login form validation error will show; or else, it will stay hidden and proceed to users dashboard view (as logged in user)
+        // if user's email and password does not match database, login form validation error will show; or else, it will stay hidden and proceed to users view (as logged in user)
         for (var i = 0; i < response.data.length; i++) {
           if (response.data[i].email == user.email && response.data[i].password == user.password) {
             $scope.errorMessage = false;
