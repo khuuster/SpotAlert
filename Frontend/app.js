@@ -111,6 +111,14 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: "./views/developers.html",
     })    
 
+    //REPORT LAST KNOWN LOCATION FOR PET
+     // LOGOUT
+     .state("lostUpdate", {
+      url: "/lostupdate",
+      templateUrl: "./views/lostUpdate.html",
+      controller: "petController"
+    })    
+
     // LOGOUT
     .state("logout", {
       url: "/",

@@ -3,33 +3,36 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
 
   //ADDS A NEW PET FOR CURRENT USER
-  $scope.addPet = function(){
-    var newPet = ({Name: $scope.petName, Description: $scope.description,  
-      Status: "not lost", OwnerId: userService.currentUserReturn()
-    }) 
-    petService.postPet(newPet);
-    $state.go("pets");
+  $scope.addPet = function () {
+      var newPet = ({
+        Name: $scope.petName, Description: $scope.description,
+        Status: "not lost", OwnerId: userService.currentUserReturn()
+      })
+      petService.postPet(newPet);
+      setTimeout(function () {
+        $state.go("pets");
+      }, 500)
   }
 
-// LOADS ALL PETS FOR CURRENT USER
-$scope.loadPets = function(){
-  petService.getAllPets().then(
-    function(response){
-      var ownerPets = [];
-      for(var i = 0; i < response.data.length; i++){
-        if(userService.currentUserReturn() == response.data[i].ownerId){
-          ownerPets.push(response.data[i])
+  // LOADS ALL PETS FOR CURRENT USER
+  $scope.loadPets = function () {
+    petService.getAllPets().then(
+      function (response) {
+        var ownerPets = [];
+        for (var i = 0; i < response.data.length; i++) {
+          if (userService.currentUserReturn() == response.data[i].ownerId) {
+            ownerPets.push(response.data[i])
+          }
         }
+        $scope.myPets = ownerPets;
       }
-     $scope.myPets = ownerPets; 
-    }
-  )
-}
-$scope.loadPets();
+    )
+  }
+  $scope.loadPets();
 
-//EDITS PET
-$scope.editPet = function(pet){
-console.log(pet);
-}
+  //EDITS PET
+  $scope.editPet = function (pet) {
+    console.log(pet);
+  }
 
 });
