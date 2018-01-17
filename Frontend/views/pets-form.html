@@ -30,18 +30,8 @@
         <p class="number">1-800-SPOT-PET</p></li>
       </ul>      
       <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-        <li>
-          <a ui-sref="account">Account</a>
-        </li>
-        <li>
-          <a ui-sref="logout">
-            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-        </li>
-=======
         <li><a ui-sref="account" class="navigation">Account</a></li>
         <li><a ui-sref="logout" class="navigation"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
->>>>>>> 2ff54f87abcafa801a693c29884460e56950a281
       </ul>
     </div>
     <!-- /.navbar-collapse -->
@@ -50,21 +40,17 @@
 </nav>
 <div class="container a">
   <div class="col-md-6 col-md-offset-3 text-center">
-    <h1>Add New Pet</h1>
-  </div>
-  <div class="addPet text-center ">
-    <div class="petContainer container formContainer">
-      <div class="col-md-6">
-        <label>PET NAME</label>
-        <input type="text" class="form-control" ng-model="petName">
-      </div>
+    <div class="row">
+      <h1>Add New Pet</h1>
     </div>
-    <div class="petContainer container formContainer">
-      <div class="col-md-6">
-        <label>DESCRIPTION</label>
-        <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
-        <button class="btn btn-success" ng-click="addPet()">Add your pet</button>
-      </div>
-    <div>
+    <div class="row">
+      <label>PET NAME</label>
+      <input type="text" class="form-control" ng-model="petName">
+      <label>DESCRIPTION</label>
+      <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
+    </div>
+    <div class="row">
+      <button class="btn btn-success" ng-click="addPet()">Add your pet</button>
+    </div>
   </div>
 </div>
