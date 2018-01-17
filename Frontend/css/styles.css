@@ -80,6 +80,20 @@ blockquote cite:before {
   font-family: 'Nunito', sans-serif;
 }
 
+.num {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: .8px;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.redBkg {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(139, 0, 0, 0.7);
+  padding: 5px;
+}
+
 .heading {
   font-family: 'Nunito', sans-serif;
   text-align: center;
@@ -96,6 +110,7 @@ blockquote cite:before {
   font-weight: 800;
   font-size: 18px;
   text-align: center;
+  font-family: 'Didact Gothic', sans-serif;
 }
 
 .body {
@@ -105,7 +120,11 @@ blockquote cite:before {
 
 .background {
   background: rgba(247, 245, 245, 0.7);
-  padding: 15px;
+  padding-top: 15px;
+}
+
+.rows {
+  padding-bottom: 15px;
 }
 
 .navbar-brand {
