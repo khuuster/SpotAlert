@@ -126,4 +126,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "userController"
     })    
 
+    // Notify owner page
+    .state("notifyOwner", {
+      url: "/notifyOwner",
+      templateUrl: "./views/notifyOwner.html",
+      controller: "petController"
+    })    
+
 })
