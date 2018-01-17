@@ -113,6 +113,27 @@ blockquote cite:before {
   font-family: 'Didact Gothic', sans-serif;
 }
 
+.userInfo {
+  font-weight: 800;
+  float: right;
+  font-family: 'Didact Gothic', sans-serif;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.userBody {
+  font-family: 'Poppins', sans-serif;
+}
+
+.userDashboard {
+  text-align: center;
+  font-family: 'Arimo', sans-serif;
+  font-size: 18px;
+  color: darkblue;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .body {
   text-align: center;
   font-family: 'Poppins', sans-serif;
