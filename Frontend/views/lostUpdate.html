@@ -1,9 +1,17 @@
 <div class="container">
-  <div class="col-md-6 col-md-offset-3 text-center">
-    <h1>Lost pet update</h1>
-    <h2>Enter your pet's last known location</h2>
-    <input type="text" class="form-control">
-    <button class="btn">Cancel</button>
-    <button class="btn danger" ng-click="report()">Report</button>
+  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
+    <div class="row rows">
+      <h1 class="heading">UPDATE LOST PET</h1>
+      <h4 class="location">Enter pet's last known location:</h4>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="row rows">
+          <input type="text" class="form-control" placeholder="Street Address, City, State, Zip...">
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <button class="btn btn-danger btn-md" ng-click="report()">Report</button>
+          <button class="btn btn-default btn-md" ui-sref="pets">Cancel</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
