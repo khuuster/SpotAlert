@@ -5,15 +5,16 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="row rows">
           <label class="name">PET NAME:</label>
-          <input type="text" class="form-control" ng-model="pet.name">
+          <input type="text" class="form-control" ng-model="petName">
           <label class="name">DESCRIPTION:</label>
-          <textarea rows="6" type="text" class="form-control" ng-model="pet.description"></textarea>
+          <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
+          <label class="name">IMAGE URL:</label>
+          <input type="text" class="form-control" ng-model="image">
           <label class="name"></label>
-          <select class="form-control" ng-model="pet.status">
+          <select class="form-control" ng-model="status">
             <option value="">Choose a status</option>
-            <option>Lost</option>
-            <option>Not Lost</option>
-            <option>Unknown</option>
+            <option value="Lost">Lost</option>
+            <option value="Not Lost">Not Lost</option>
           </select>
         </div>
         <div class="col-md-8 col-md-offset-2">

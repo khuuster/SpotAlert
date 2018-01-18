@@ -1,30 +1,30 @@
 <div class="container">
   <div class="col-md-12 background">
-    <div class="row">
-      <h1 class="heading">MY PETS</h1>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="title">Picture</th>
-            <th class="title">Name</th>
-            <th class="title">Description</th>
-            <th class="title">Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="pet in myPets">
-            <td><img src="{{ pet.image }}" alt=""></td>
-            <td class="pet">{{ pet.name }}</td>
-            <td class="pet">{{ pet.description | lowercase }}</td>
-            <td class="pet">{{ pet.status | uppercase }}</td>
-            <td>
-              <li class="edit"><button class="btn btn-info btn-xs" ng-click="editPet()">Edit</button></li>
-              <li><button class="btn btn-warning btn-xs" ng-click="lost(pet)">Report Lost</button></li>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <h1 class="heading">MY PETS</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="table-header">Name</th>
+              <th class="table-header">Description</th>
+              <th class="table-header">Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="pet in myPets">
+              <td class="pet" id="name">{{ pet.name }}</td>
+              <td class="pet">{{ pet.description | lowercase }}</td>
+              <td class="pet">{{ pet.status | uppercase }}</td>
+              <td>
+                <li class="edit"><button class="btn btn-info btn-xs" ng-click="editPet()">Edit</button></li>
+                <li><button class="btn btn-warning btn-xs" ng-click="lost(pet)">Report Lost</button></li>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

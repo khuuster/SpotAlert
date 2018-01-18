@@ -1,22 +1,23 @@
 <div class="container">
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
-    <div class="row rows">
-      <h1 class="heading" style="color: red;">ALERTING MISSING PETS</h1>
-      <div class="col-md-8 col-md-offset-2" ng-repeat="pets in allPets">
-        <div class="row rows">
-          <p class="userBody"><img src="{{ pets.image }}" alt=""></p>
-          <label class="name">NAME:</label>
-          <p class="userBody">{{ pets.name }}</p>
-          <label class="name">DESCRIPTION:</label>
-          <p class="userBody">{{ pets.description }}</p>
-          <label class="name">Missing Since:</label>
-          <p class="userBody">{{ pets.lostSince }}</p>
-          <label class="name">Last Known Location:</label>
-          <p class="userBody">{{ pets.lastKnownLoc }}</p>
-        </div>
-        <div class="col-md-8 col-md-offset-2" style="margin-bottom: 30px">
-          <button class="btn success" ng-click="found(pets)">Click If Found!</button>
-        </div>
+    <h1 class="heading" style="color: red;">ALERTING MISSING PETS</h1>
+    <div ng-repeat="pets in allPets">
+      <div class="col-md-6 alert-pets">
+        <label class="pet-title">NAME:</label>
+        <p class="petBody">{{ pets.name }}</p>
+        <label class="pet-title">DESCRIPTION:</label>
+        <p class="petBody">{{ pets.description }}</p>
+        <label class="pet-title">Missing Since:</label>
+        <p class="petBody">{{ pets.lostSince }}</p>
+        <label class="pet-title">Last Known Location:</label>
+        <p class="petBody">{{ pets.lastKnownLoc }}</p>
+        <button class="btn btn-success btn-md" ng-click="found(pets)">Click If Found!</button>
+      </div>
+      <div class="col-md-5 alert-pets">
+        <p class="userBody"><img src="{{ pets.image }}" alt=""></p>
+      </div>
+      <div class="col-md-12">
+        <p class="line"></p>
       </div>
     </div>
   </div>
