@@ -29,8 +29,10 @@
         <p class="number">1-800-SPOT-PET</p></li>
       </ul>      
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="account" class="navigation"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-        <li><a ui-sref="logout" class="navigation"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li ng-show="!profileNav"><a ui-sref="account" class="navigation"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        <li ng-show="!profileNav"><a ui-sref="logout" class="navigation"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>   
+        <li class="active" ng-show="profileNav"><a ui-sref="userCreate" class="navigation"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="sr-only">(current)</span></a></li>     
+        <li ng-show="profileNav"><a ui-sref="login" class="navigation"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

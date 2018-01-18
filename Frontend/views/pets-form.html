@@ -38,19 +38,29 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
-<div class="container a">
-  <div class="col-md-6 col-md-offset-3 text-center">
-    <div class="row">
-      <h1>Add New Pet</h1>
-    </div>
-    <div class="row">
-      <label>PET NAME</label>
-      <input type="text" class="form-control" ng-model="petName">
-      <label>DESCRIPTION</label>
-      <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
-    </div>
-    <div class="row">
-      <button class="btn btn-success" ng-click="addPet()">Add your pet</button>
+<div class="container">
+  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
+    <div class="row rows">
+      <h1 class="heading">ADD NEW PET</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="row rows">
+          <label class="name">PET NAME:</label>
+          <input type="text" class="form-control" ng-model="pet.name">
+          <label class="name">DESCRIPTION:</label>
+          <textarea rows="6" type="text" class="form-control" ng-model="pet.description"></textarea>
+          <label class="name"></label>
+          <select class="form-control" ng-model="pet.status">
+            <option value="">Choose a status</option>
+            <option>Lost</option>
+            <option>Not Lost</option>
+            <option>Unknown</option>
+          </select>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <button class="btn btn-success btn-md" ng-click="addPet()">Add Pet</button>
+          <button class="btn btn-default btn-md" ui-sref="pets">Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
