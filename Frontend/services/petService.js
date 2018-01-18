@@ -32,7 +32,9 @@ app.service("petService", function ($http) {
     return currentLostPet; 
   }
 
-  //UPDATES PET STATUS AND KNOWN LOCATION
-  this.updatePet
+  //UPDATES LOST PET STATUS AND KNOWN LOCATION
+  this.updatePetLost = function(pet){
+    return $http.put("http://localhost:5000/api/pets/" + currentLostPet.id, pet)
+  }
 
 });
