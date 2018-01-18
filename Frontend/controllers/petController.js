@@ -15,7 +15,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
   //REPORTS LOST PET TO LIST OF LOST PETS
   $scope.lost = function (pet) {
-    petService.setCurrentLostPet(pet);
+    petService.setCurrentLostPet(pet)
     $state.go("lostUpdate");
   }
 
@@ -24,8 +24,9 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     var petInfo = ({
       id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
     })
-    petService.updatePetLost(petInfo);
-    $state.go("lostPets");
+    petService.updatePetLost(petInfo).then(function(){
+      $state.go("lostPets");
+    })
   }
 
   // LOADS ALL PETS FOR CURRENT USER
@@ -103,6 +104,12 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     }, 500)
   }
   
+  //DELETES PET
+  $scope.deletePet = function(){
+    petService.deletePet().then(function(){
+       $state.go("pets");
+    })
+  }
 
   //NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function () {

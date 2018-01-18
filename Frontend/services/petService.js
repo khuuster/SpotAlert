@@ -42,4 +42,8 @@ app.service("petService", function ($http) {
     return $http.put("http://localhost:5000/api/pets/" + currentPet.id, pet)
   }
 
+  //DELTE PET
+  this.deletePet = function(){
+    return $http.delete("http://localhost:5000/api/pets/" + currentPet.id)
+  }
 });
