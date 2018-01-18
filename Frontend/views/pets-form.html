@@ -5,26 +5,33 @@
       <h1 class="heading"  ng-show="petService.returnCurrentPet() != null">UPDATE PET</h1>
       <div class="col-md-6 col-md-offset-3">
         <div class="row rows">
-          <label class="new">PET NAME:</label>
-          <input type="text" class="form-control" ng-model="petName">
-          <label class="new">DESCRIPTION:</label>
-          <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
-          <label class="new">IMAGE URL:</label>
-          <input type="text" class="form-control" ng-model="image">
-          <label class="new">STATUS:</label>
-          <select class="form-control" ng-model="status">
-            <option value="">Choose a status</option>
-            <option value="lost">Lost</option>
-            <option value="not lost">Not Lost</option>
-          </select>
+          <div class="row">
+            <label class="new">PET NAME:</label>
+            <input type="text" class="form-control" ng-model="petName">
+          </div>
+          <div class="row">
+            <label class="new">DESCRIPTION:</label>
+            <textarea rows="6" type="text" class="form-control" ng-model="description"></textarea>
+          </div>
+          <div class="row">
+            <label class="new">IMAGE URL:</label>
+            <input type="text" class="form-control" ng-model="image">
+          </div>
+          <div class="row">
+            <label class="new">STATUS:</label>
+            <select class="form-control" ng-model="status">
+              <option value="">Choose a status</option>
+              <option value="lost">Lost</option>
+              <option value="not lost">Not Lost</option>
+            </select>
+          </div>
           <div class="row" ng-show="status == 'lost'">
             <p class="lost">If lost, please fill out the following:</p>
-          <label class="new">MISSING SINCE:</label>
-          <input type="text" class="form-control" ng-model="missingSince">
-          <label class="new">LAST KNOWN LOCATION:</label>
-          <input type="text" class="form-control" ng-model="lastKnownLocation">
+            <label class="new">MISSING SINCE:</label>
+            <input type="text" class="form-control" ng-model="missingSince">
+            <label class="new">LAST KNOWN LOCATION:</label>
+            <input type="text" class="form-control" ng-model="lastKnownLocation">
           </div>
-          
         </div>
         <div class="col-md-8 col-md-offset-2">
           <button class="btn btn-danger" ng-click="deletePet()" ng-show="petService.returnCurrentPet() != null">Delete</button>
