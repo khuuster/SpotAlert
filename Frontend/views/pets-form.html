@@ -16,14 +16,18 @@
             <option value="Lost">Lost</option>
             <option value="Not Lost">Not Lost</option>
           </select>
-          <p class="lost">If lost, please fill out the following:</p>
+          <div class="row" ng-show="status == 'Lost'">
+            <p class="lost">If lost, please fill out the following:</p>
           <label class="new">MISSING SINCE:</label>
           <input type="text" class="form-control" ng-model="missingSince">
           <label class="new">LAST KNOWN LOCATION:</label>
           <input type="text" class="form-control" ng-model="lastKnownLocation">
+          </div>
+          
         </div>
         <div class="col-md-8 col-md-offset-2">
-          <button class="btn btn-success btn-md" ng-click="addPet()">Add Pet</button>
+          <button class="btn btn-success" ng-hide="hidePetEdit" ng-click="updatePet()">Update</button>
+          <button class="btn btn-success btn-md" ng-click="addPet()" ng-hide="hideAddPet">Add Pet</button>
           <button class="btn btn-default btn-md" ui-sref="pets">Cancel</button>
         </div>
       </div>

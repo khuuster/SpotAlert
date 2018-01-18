@@ -37,4 +37,9 @@ app.service("petService", function ($http) {
     return $http.put("http://localhost:5000/api/pets/" + currentLostPet.id, pet)
   }
 
+  //UPDATES PET 
+  this.updatePet = function(pet){
+    return $http.put("http://localhost:5000/api/pets/" + currentPet.id, pet)
+  }
+
 });

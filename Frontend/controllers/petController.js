@@ -14,19 +14,20 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   }
 
   //REPORTS LOST PET TO LIST OF LOST PETS
-  $scope.lost = function(pet){
+  $scope.lost = function (pet) {
     petService.setCurrentLostPet(pet);
     $state.go("lostUpdate");
   }
 
   //CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
-  $scope.report = function(){
-    var petInfo = ({id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
+  $scope.report = function () {
+    var petInfo = ({
+      id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
     })
-      petService.updatePetLost(petInfo);
-      $state.go("lostPets");
+    petService.updatePetLost(petInfo);
+    $state.go("lostPets");
   }
-  
+
   // LOADS ALL PETS FOR CURRENT USER
   $scope.loadPets = function () {
     petService.getAllPets().then(
@@ -55,16 +56,25 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
   //EDITS PET
   $scope.editPet = function (pet) {
-    petService.setCurrentPet(pet); 
+    petService.setCurrentPet(pet);
     $state.go("petCreate")
   }
 
+  //HIDES PET EDIT BUTTON SHOWS ADD BUTON
+  $scope.hidePetEdit = true; 
+  $scope.hideAddPet = false; 
+
   // LOADS PET FORM FOR EDITING
-  $scope.petName = petService.returnCurrentPet.name; 
-  $scope.description = petService.returnCurrentPet.description; 
-  $scope.image = petService.returnCurrentPet.image; 
-  $scope.status = petService.returnCurrentPet.status; 
-  
+  if (petService.returnCurrentPet() != null) {
+    $scope.hidePetEdit = false; 
+    $scope.hideAddPet = true; 
+    $scope.petName = petService.returnCurrentPet().name;
+    $scope.description = petService.returnCurrentPet().description;
+    $scope.image = petService.returnCurrentPet().image;
+    $scope.status = petService.returnCurrentPet().status;
+    $scope.missingSince = petService.returnCurrentPet().lostSince;
+    $scope.lastKnownLocation = petService.returnCurrentPet().lastKnownLoc;
+  }
 
   //FOUND PET BUTTON NOTIFY OWNER
   $scope.found = function (pets) {
@@ -75,15 +85,27 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.getOwnerInfo = function () {
     var currentPet = petService.returnCurrentPet();
     userService.getOwnerById(currentPet.ownerId).then(function (response) {
-        $scope.owner = response.data;
-      })
+      $scope.owner = response.data;
+    })
   }
-  if(petService.returnCurrentPet() != null){
+  if (petService.returnCurrentPet() != null) {
     $scope.getOwnerInfo();
   };
 
+  //UPDATE PET BUTTON 
+  $scope.updatePet = function (){
+    var updatePet = ({ id: petService.returnCurrentPet().id,
+      Name: $scope.petName, Image: $scope.image, Description: $scope.description,  LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
+    })
+    petService.updatePet(updatePet);
+    setTimeout(function () {
+      $state.go("pets");
+    }, 500)
+  }
+  
+
   //NOTIFY SUBMIT BUTTON
-  $scope.notifySubmit = function(){
+  $scope.notifySubmit = function () {
     var owner = ({
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, message: $scope.notifyMessage
     })
@@ -91,6 +113,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     userService.messageOwner(owner);
     $state.go("lostPets");
   }
-  
+
 
 });
