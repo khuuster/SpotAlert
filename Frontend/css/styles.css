@@ -2,7 +2,7 @@
   box-sizing: border-box;
   cursor: crosshair;
   font-size: 14px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   margin: 0 auto;
   padding: 0;
 }
@@ -90,6 +90,21 @@ blockquote cite:before {
   font-family: 'Nunito', sans-serif;
   letter-spacing: .8px;
   font-weight: 800;
+  font-size: 16px;
+}
+
+#owner-name {
+  color: rgb(70, 0, 128);
+  letter-spacing: 1.5px;
+  font-family: 'Arapey', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.messages {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -220,6 +235,15 @@ img {
 .petBody {
   font-family: 'Quicksand', sans-serif;
   font-weight: 200;
+}
+
+.pet-header {
+  font-family: 'Arapey', sans-serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  color: rgb(70, 0, 128);
+  font-weight: 600;
 }
 
 .owner {
