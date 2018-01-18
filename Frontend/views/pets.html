@@ -16,7 +16,7 @@
             <tr ng-repeat="pet in myPets">
               <td class="pet" id="name">{{ pet.name }}</td>
               <td class="pet">{{ pet.description | lowercase }}</td>
-              <td class="pet">{{ pet.status | uppercase }}</td>
+              <td class="pet">{{ pet.status }}</td>
               <td>
                 <li class="edit"><button class="btn btn-info btn-xs" ng-click="editPet(pet)">Edit</button></li>
                 <li><button class="btn btn-warning btn-xs" ng-click="lost(pet)">Report Lost</button></li>
