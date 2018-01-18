@@ -81,6 +81,13 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "petController"
     })
 
+    // SINGLE PET VIEW WITH GOOGLE MAPS LOCATION
+    .state("lostPetInfo", {
+      url: "/lostpetinfo",
+      templateUrl: "./views/lostpetinfo.html",
+      controller: "petController"
+    })
+
     // MISSION
     .state("mission", {
       url: "/mission",
