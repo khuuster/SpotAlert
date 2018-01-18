@@ -5,8 +5,13 @@
       <h4 class="location">Enter pet's last known location:</h4>
       <div class="col-md-6 col-md-offset-3">
         <div class="row rows">
-          <input type="text" class="form-control" placeholder="Street Address, City, State, Zip...">
+          <input type="text" class="form-control" placeholder="Street Address, City, State, Zip..." ng-model= "lostLocation">
         </div>
+        <h4 class="location">When was your pet lost?</h4>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="row rows">
+            <input type="text" class="form-control" placeholder="Date" ng-model="lostDate">
+          </div>
         <div class="col-md-8 col-md-offset-2">
           <button class="btn btn-danger btn-md" ng-click="report()">Report</button>
           <button class="btn btn-default btn-md" ui-sref="pets">Cancel</button>

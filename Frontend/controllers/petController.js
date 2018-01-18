@@ -5,8 +5,8 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
     var newPet = ({
-      Name: $scope.petName, Description: $scope.description,
-      Status: "not lost", OwnerId: userService.currentUserReturn()
+      Name: $scope.petname, Description: $scope.description,
+      Status: $scope.petStatus, OwnerId: userService.currentUserReturn()
     })
     petService.postPet(newPet);
     setTimeout(function () {
@@ -22,8 +22,10 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
   //CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
   $scope.report = function(){
-    
-        petService.updatePet(petService.returnLostPet().id)
+    var petInfo = ({id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
+    })
+      petService.updatePetLost(petInfo);
+      $state.go("lostpets");
   }
   
   // LOADS ALL PETS FOR CURRENT USER
@@ -54,7 +56,8 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
   //EDITS PET
   $scope.editPet = function (pet) {
-    console.log(pet);
+    petService.setCurrentPet(pet); 
+    $state.go("")
   }
 
   //FOUND PET BUTTON NOTIFY OWNER
