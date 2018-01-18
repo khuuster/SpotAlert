@@ -57,8 +57,15 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //EDITS PET
   $scope.editPet = function (pet) {
     petService.setCurrentPet(pet); 
-    $state.go("")
+    $state.go("petCreate")
   }
+
+  // LOADS PET FORM FOR EDITING
+  $scope.petName = petService.returnCurrentPet.name; 
+  $scope.description = petService.returnCurrentPet.description; 
+  $scope.image = petService.returnCurrentPet.image; 
+  $scope.status = petService.returnCurrentPet.status; 
+  
 
   //FOUND PET BUTTON NOTIFY OWNER
   $scope.found = function (pets) {
