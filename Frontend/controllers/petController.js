@@ -5,8 +5,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
     var newPet = ({
-      Name: $scope.petName, Description: $scope.description, Image: $scope.image,
-      Status: $scope.status, OwnerId: userService.currentUserReturn()
+      Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     })
     petService.postPet(newPet);
     setTimeout(function () {

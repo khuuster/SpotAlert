@@ -157,6 +157,20 @@ img {
   font-family: 'Didact Gothic', sans-serif;
 }
 
+.lost {
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.new {
+  font-weight: 800;
+  font-size: 14px;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
 #name {
   font-weight: 800;
 }
