@@ -112,7 +112,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     }
 
     // If forms are not empty & passwords do match, register button will proceed to home-login view
-    if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
+    if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.address != "" && $scope.user.address != null && $scope.user.phoneNumber != "" && $scope.user.phoneNumber != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
       $state.go("home");
     };
   };

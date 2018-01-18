@@ -68,6 +68,11 @@ blockquote cite:before {
   font-family: 'Poppins', sans-serif;
 }
 
+.signButton {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .middleNav {
   font-size: 12px;
 }
@@ -92,6 +97,10 @@ blockquote cite:before {
   color: rgba(255, 255, 255, 0.9);
   background: rgba(139, 0, 0, 0.7);
   padding: 5px;
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
 }
 
 .heading {
@@ -161,9 +170,17 @@ blockquote cite:before {
   color: red;
 }
 
-.login {
+.red-error {
+  color: red;
+  font-size: 12px;
   text-align: center;
-  font-size: 20px;
+  margin-top: 5px;
+}
+
+.login {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  font-size: 26px;
   padding: 0;
   margin: 0 auto;
 }
