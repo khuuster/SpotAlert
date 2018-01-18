@@ -1,6 +1,6 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
 
-
+$scope.petService = petService; 
 
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
@@ -98,15 +98,19 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     var updatePet = ({ id: petService.returnCurrentPet().id,
       Name: $scope.petName, Image: $scope.image, Description: $scope.description,  LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     })
-    petService.updatePet(updatePet);
-    setTimeout(function () {
+    petService.updatePet(updatePet).then(function(){
+      petService.setCurrentPet(null);
       $state.go("pets");
-    }, 500)
+    })
+    
+      
+   
   }
   
   //DELETES PET
   $scope.deletePet = function(){
     petService.deletePet().then(function(){
+      petService.setCurrentPet(null);
        $state.go("pets");
     })
   }
