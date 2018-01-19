@@ -207,4 +207,18 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     userService.setCurrentUser(0);
     $state.go("home");
   };
+
+  //DELETE MESSAGE
+  $scope.deleteMessage = function(){
+    userService.getUser(userService.currentUserReturn())
+    .then(function(response){
+      var put = ({
+        id: response.data.id, firstName: response.data.firstName, lastName: response.data.lastName, email: response.data.email, password: response.data.password, confirmPassword: response.data.confirmPassword, phoneNumber: response.data.phoneNumber, address: response.data.address
+      })
+      userService.putUser(response.data.id, put)
+    }).then(function(){
+      $state.go("pets");
+    })
+  }
+
 });

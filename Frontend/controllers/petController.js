@@ -49,10 +49,17 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   }
   $scope.loadPets();
 
-  //GETS ALL PETS 
+  //GETS ALL LOST PETS 
   $scope.loadAllPets = function () {
     petService.getAllPets().then(function (response) {
-      $scope.allPets = response.data;
+      var lostPets = [];
+      for(var i = 0; i < response.data.length; i++){
+        if (response.data[i].status == "lost"){
+          lostPets.push(response.data[i])
+        }
+      }
+      // console.log(lostPets)
+      $scope.allPets = lostPets; 
     })
   }
   $scope.loadAllPets();

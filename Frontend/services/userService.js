@@ -68,4 +68,10 @@ app.service("userService", function ($http) {
   this.getCurrentUserInfo = function () {
     return $http.get("http://localhost:5000/api/users/" + _currentUserId);
   };
+
+   // Get user by id
+   this.getUser = function (id) {
+      return $http.get("http://localhost:5000/api/users/" + id)
+  };
 });
+
