@@ -21,13 +21,13 @@
       </div>
       <div class="col-md-6 col-md-offset-3">
         <p class="message">Name:</p> <span class="red-text" ng-show="messageNameReq">*</span>
-        <input rows="6" type="text" class="form-control" ng-model="messageName">
+        <input type="text" class="form-control" placeholder="Full Name" ng-model="messageName">
         <p class="message">Phone Number:</p> <span class="red-text" ng-show="messageNumberReq">*</span>
-        <input rows="6" type="text" class="form-control" ng-model="messageNumber">
+        <input type="text" class="form-control" placeholder="(000) 000-0000" ng-model="messageNumber">
         <p class="message">Email Address:</p> <span class="red-text" ng-show="messageEmailReq">*</span>
-        <input rows="6" type="text" class="form-control" ng-model="messageEmail"> 
+        <input tyle="email" class="form-control" placeholder="Email Address" ng-model="messageEmail"> 
         <p class="message">Message:</p> <span class="red-text" ng-show="messageReq">*</span>
-        <textarea rows="6" type="text" class="form-control" ng-model="message"></textarea>
+        <textarea rows="6" type="text" class="form-control" placeholder="Provide brief message to the pet's owner" ng-model="message"></textarea>
       </div>
     </div>
     <div class="col-md-8 col-md-offset-4">
