@@ -399,3 +399,10 @@ body {
     border-bottom: 0;
   }
 }
+#map{
+  margin: auto; 
+  height: 400px;
+  width: 600px; 
+  border: 1px solid black; 
+  margin-bottom: 20px; 
+}

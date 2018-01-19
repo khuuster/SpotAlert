@@ -26,7 +26,7 @@
     </div>
     <div class="col-md-8 col-md-offset-4">
       <button class="btn btn-primary btn-md" ng-click="notifySubmit()">Submit</button>
-      <button class="btn btn-default btn-md" ui-sref="lostPets">Cancel</button>
+      <button class="btn btn-default btn-md" ui-sref="lostPets" ng-click="petService.setCurrentPet(null)">Cancel</button>
     </div>
   </div>
 </div>

@@ -46,4 +46,24 @@ app.service("petService", function ($http) {
   this.deletePet = function(){
     return $http.delete("http://localhost:5000/api/pets/" + currentPet.id)
   }
+
+  //GETS LAT LONG FROM GOOGLE
+  // AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ
+  var currentLat = 0;
+  var currentLng = 0;
+  this.getLatLong = function(loc){
+    return $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + loc + '&key=AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ').then(function(response){
+    currentLat = response.data.results[0].geometry.location.lat;
+    currentLng = response.data.results[0].geometry.location.lng;
+    })
+  }
+  
+  //RETURNS HELD LAT
+    this.returnLat = function(){
+      return currentLat; 
+    }
+    //RETURNS HELD LONG
+    this.returnLng = function(){
+      return currentLng; 
+    }
 });

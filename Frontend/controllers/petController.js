@@ -1,6 +1,7 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
 
-$scope.petService = petService; 
+  //CONNECTS SERVICE TO USE IN HTML FILES
+  $scope.petService = petService;
 
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
@@ -17,6 +18,8 @@ $scope.petService = petService;
   $scope.lost = function (pet) {
     petService.setCurrentLostPet(pet)
     $state.go("lostUpdate");
+    petService.setCurrentPet(pet);
+    $state.go("lostUpdate");
   }
 
   //CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
@@ -24,7 +27,7 @@ $scope.petService = petService;
     var petInfo = ({
       id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
     })
-    petService.updatePetLost(petInfo).then(function(){
+    petService.updatePetLost(petInfo).then(function () {
       $state.go("lostPets");
     })
   }
@@ -45,8 +48,6 @@ $scope.petService = petService;
   }
   $scope.loadPets();
 
-
-
   //GETS ALL PETS 
   $scope.loadAllPets = function () {
     petService.getAllPets().then(function (response) {
@@ -62,13 +63,13 @@ $scope.petService = petService;
   }
 
   //HIDES PET EDIT BUTTON SHOWS ADD BUTON
-  $scope.hidePetEdit = true; 
-  $scope.hideAddPet = false; 
+  $scope.hidePetEdit = true;
+  $scope.hideAddPet = false;
 
   // LOADS PET FORM FOR EDITING
   if (petService.returnCurrentPet() != null) {
-    $scope.hidePetEdit = false; 
-    $scope.hideAddPet = true; 
+    $scope.hidePetEdit = false;
+    $scope.hideAddPet = true;
     $scope.petName = petService.returnCurrentPet().name;
     $scope.description = petService.returnCurrentPet().description;
     $scope.image = petService.returnCurrentPet().image;
@@ -94,24 +95,22 @@ $scope.petService = petService;
   };
 
   //UPDATE PET BUTTON 
-  $scope.updatePet = function (){
-    var updatePet = ({ id: petService.returnCurrentPet().id,
-      Name: $scope.petName, Image: $scope.image, Description: $scope.description,  LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
+  $scope.updatePet = function () {
+    var updatePet = ({
+      id: petService.returnCurrentPet().id,
+      Name: $scope.petName, Image: $scope.image, Description: $scope.description, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     })
-    petService.updatePet(updatePet).then(function(){
+    petService.updatePet(updatePet).then(function () {
       petService.setCurrentPet(null);
       $state.go("pets");
     })
-    
-      
-   
   }
-  
+
   //DELETES PET
-  $scope.deletePet = function(){
-    petService.deletePet().then(function(){
+  $scope.deletePet = function () {
+    petService.deletePet().then(function () {
       petService.setCurrentPet(null);
-       $state.go("pets");
+      $state.go("pets");
     })
   }
 
@@ -121,8 +120,32 @@ $scope.petService = petService;
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, message: $scope.notifyMessage
     })
     userService.setOwner($scope.owner.id);
-    userService.messageOwner(owner);
-    $state.go("lostPets");
+    userService.messageOwner(owner).then(function(){
+      petService.setCurrentPet(null);
+      $state.go("lostPets");
+    })
+  }
+
+  //GOOGLE API MAP FUNCTION
+ var initMap = function () {
+  console.log(petService.returnLat(), petService.returnLng())
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: petService.returnLat(), lng: petService.returnLng() },
+          zoom: 17
+        });
+        var marker = new google.maps.Marker({
+          position: { lat: petService.returnLat(), lng: petService.returnLng() },
+          map: map
+        });
+      }
+    
+  //MAP BUTTON 
+  $scope.map = function (loc) {
+    petService.getLatLong(loc).then(function(){
+      console.log(loc);
+      initMap();
+
+    })
   }
 
 
