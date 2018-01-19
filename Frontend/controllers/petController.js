@@ -156,14 +156,4 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     })
   }
 
-  var fsClient = filestack.init('AVrUbKD1iRt63Dm4iq8S2z');
-  function openPicker() {
-    fsClient.pick({
-      fromSources:["url"]
-    }).then(function(response) {
-      // declare this function to handle response
-      handleFilestack(response);
-    });
-  }
-
 });

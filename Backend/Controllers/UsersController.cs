@@ -54,7 +54,7 @@ namespace Backend.Controllers
     public User Post([FromBody] User s)
     {
       // Only add users if all objects has values & if password value is the same as confirm password value; otherwise, user will not be added
-      if (s.FirstName != null && s.FirstName != "" && s.LastName != null && s.LastName != "" && s.Email != null && s.Email != "" && s.PhoneNumber != null && s.PhoneNumber != "" && s.Password != null && s.Password != "" && s.ConfirmPassword != null && s.ConfirmPassword != "" && s.Password == s.ConfirmPassword && s.Message != "" && s.Message != null && s.MessageName != "" && s.MessageName != null && s.MessageNumber != "" && s.MessageNumber != null && s.MessageEmail != "" && s.MessageEmail != null)
+      if (s.FirstName != null && s.FirstName != "" && s.LastName != null && s.LastName != "" && s.Email != null && s.Email != "" && s.PhoneNumber != null && s.PhoneNumber != "" && s.Password != null && s.Password != "" && s.ConfirmPassword != null && s.ConfirmPassword != "" && s.Password == s.ConfirmPassword)
 
       {
         s.Id = _context.Users.Count() + 1;
