@@ -2,12 +2,12 @@
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
     <h1 class="heading" style="color: red;">MISSING PETS ALERT</h1>
     <div ng-repeat="pets in allPets">
-      <div class="col-md-6 alert-pets">
+      <div class="col-md-5 col-md-offset-1 alert-pets">
         <p class="pet-header">{{ pets.name }}</p>
         <label class="pet-title">DESCRIPTION:</label>
         <p class="petBody">{{ pets.description }}</p>
         <label class="pet-title">Missing Since:</label>
-        <p class="petBody">{{ pets.lostSince }}</p>
+        <p class="petBody">{{ pets.lostSince | date:'MM/dd/yyyy' }}</p>
         <label class="pet-title">Last Known Location:</label>
         <p class="petBody">{{ pets.lastKnownLoc }}</p>
         <p><span class="glyphicon glyphicon-map-marker"></span> <a ui-sref="lostPetInfo" ng-click="map(pets.lastKnownLoc)" class="petBody">map location</a></p>

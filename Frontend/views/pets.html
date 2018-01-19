@@ -19,7 +19,7 @@
               <td class="pet">{{ pet.status }}</td>
               <td>
                 <li class="edit"><button class="btn btn-info btn-xs" ng-click="editPet(pet)">Edit</button></li>
-                <li><button class="btn btn-warning btn-xs" ng-click="lost(pet)" ng-hide="pet.status != 'not lost'">Report Lost</button></li>
+                <li ng-hide="pet.status != 'not lost'"><button class="btn btn-warning btn-xs" ng-click="lost(pet)">Report Lost</button></li>
               </td>
             </tr>
           </tbody>

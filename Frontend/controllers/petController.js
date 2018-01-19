@@ -146,7 +146,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   console.log(petService.returnLat(), petService.returnLng())
         var map = new google.maps.Map(document.getElementById('map'), {
           center: { lat: petService.returnLat(), lng: petService.returnLng() },
-          zoom: 17
+          zoom: 18
         });
         var marker = new google.maps.Marker({
           position: { lat: petService.returnLat(), lng: petService.returnLng() },
