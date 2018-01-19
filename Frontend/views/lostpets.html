@@ -10,8 +10,8 @@
         <p class="petBody">{{ pets.lostSince }}</p>
         <label class="pet-title">Last Known Location:</label>
         <p class="petBody">{{ pets.lastKnownLoc }}</p>
-        <p><span class="glyphicon glyphicon-map-marker"></span> <a ui-sref="lostPetInfo" ng-click="map(pets.lastKnownLoc)">map location</a></p>
-        <button class="btn btn-success btn-md" ng-click="found(pets)">Click If Found!</button>
+        <p><span class="glyphicon glyphicon-map-marker"></span> <a ui-sref="lostPetInfo" ng-click="map(pets.lastKnownLoc)" class="petBody">map location</a></p>
+        <button class="btn btn-success btn-sm" ng-click="found(pets)">Click If Found!</button>
       </div>
       <div class="col-md-5 alert-pets">
         <p class="userBody"><img src="{{ pets.image }}" alt=""></p>

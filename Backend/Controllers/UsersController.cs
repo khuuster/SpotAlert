@@ -17,11 +17,11 @@ namespace Backend.Controllers
 
       if (_context.Users.Count() == 0)
       {
-        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", ConfirmPassword = "1234", PhoneNumber = "(523) 584-6058", Address = "7246 W. Windsor Dr., Carmichael, CA 95608" });
-        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "0000", ConfirmPassword = "0000", PhoneNumber = "(898) 457-6842", Address = "601 Sherwood Ave., San Bernardino, CA 92404" });
-        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1111", ConfirmPassword = "1111", PhoneNumber = "(324) 287-3247", Address = "689 Brookside St., Laguna Niguel, CA 92677" });
-        _context.Users.Add(new User() { Id = 4, FirstName = "Cy", LastName = "Shiro", Email = "cyshiro@gmail.com", Password = "2222", ConfirmPassword = "2222", PhoneNumber = "(085) 258-7450", Address = "689 Brookside St., Laguna Niguel, CA 92677" });
-        _context.Users.Add(new User() { Id = 5, FirstName = "Alie", LastName = "Julious", Email = "aliejulious@gmail.com", Password = "3333", ConfirmPassword = "3333", PhoneNumber = "(973) 722-5201", Address = "689 Brookside St., Laguna Niguel, CA 92677" });
+        _context.Users.Add(new User() { Id = 1, FirstName = "Bobby", LastName = "Lee", Email = "bobbylee@gmail.com", Password = "1234", ConfirmPassword = "1234", PhoneNumber = "(523) 584-6058", Address = "7246 W. Windsor Dr., Carmichael, CA 95608", Message = "Hi Bobby, I found your dog. She is currently safe with me. I can tell that she is very scared and misses her home and especially her family. Please give me a call or an email as soon as possible.", MessageName = "Emma", MessageNumber = "(543) 345-8690", MessageEmail = "emma@gmail.com"});
+        _context.Users.Add(new User() { Id = 2, FirstName = "Tom", LastName = "Ford", Email = "tomford@gmail.com", Password = "0000", ConfirmPassword = "0000", PhoneNumber = "(898) 457-6842", Address = "601 Sherwood Ave., San Bernardino, CA 92404"});
+        _context.Users.Add(new User() { Id = 3, FirstName = "Kate", LastName = "Spade", Email = "katespade@gmail.com", Password = "1111", ConfirmPassword = "1111", PhoneNumber = "(324) 287-3247", Address = "689 Brookside St., Laguna Niguel, CA 92677"});
+        _context.Users.Add(new User() { Id = 4, FirstName = "Cy", LastName = "Shiro", Email = "cyshiro@gmail.com", Password = "2222", ConfirmPassword = "2222", PhoneNumber = "(085) 258-7450", Address = "689 Brookside St., Laguna Niguel, CA 92677"});
+        _context.Users.Add(new User() { Id = 5, FirstName = "Alie", LastName = "Julious", Email = "aliejulious@gmail.com", Password = "3333", ConfirmPassword = "3333", PhoneNumber = "(973) 722-5201", Address = "689 Brookside St., Laguna Niguel, CA 92677"});
 
         _context.SaveChanges();
       }
@@ -54,7 +54,7 @@ namespace Backend.Controllers
     public User Post([FromBody] User s)
     {
       // Only add users if all objects has values & if password value is the same as confirm password value; otherwise, user will not be added
-      if (s.FirstName != null && s.FirstName != "" && s.LastName != null && s.LastName != "" && s.Email != null && s.Email != "" && s.PhoneNumber != null && s.PhoneNumber != "" && s.Password != null && s.Password != "" && s.ConfirmPassword != null && s.ConfirmPassword != "" && s.Password == s.ConfirmPassword)
+      if (s.FirstName != null && s.FirstName != "" && s.LastName != null && s.LastName != "" && s.Email != null && s.Email != "" && s.PhoneNumber != null && s.PhoneNumber != "" && s.Password != null && s.Password != "" && s.ConfirmPassword != null && s.ConfirmPassword != "" && s.Password == s.ConfirmPassword && s.Message != "" && s.Message != null && s.MessageName != "" && s.MessageName != null && s.MessageNumber != "" && s.MessageNumber != null && s.MessageEmail != "" && s.MessageEmail != null)
 
       {
         s.Id = _context.Users.Count() + 1;

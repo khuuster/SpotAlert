@@ -4,10 +4,17 @@
       <h1 class="heading">DASHBOARD</h1>
       <div class="col-md-6 col-md-offset-3">
         <div class="row">
-          <p class="userDashboard">Messages</p>
+          <p class="userDashboard">Inbox Message(s)</p>
         </div>
-        <div class="row">
-          <p class="messages">{{ dashMessage.message }}</p>
+        <div class="col-md-12">
+          <p class="pet-title">Name:</p>
+          <p class="userBody">{{ dashMessage.messageName}}</p>
+          <p class="pet-title">Phone Number:</p>
+          <p class="userBody">{{ dashMessage.messageNumber }}</p>
+          <p class="pet-title">Email Adress:</p>
+          <p class="userBody">{{ dashMessage.messageEmail }}</p>
+          <p class="pet-title">Message:</p>
+          <p class="userBody">{{ dashMessage.message }}</p>
         </div>
       </div>
     </div>

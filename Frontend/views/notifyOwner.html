@@ -20,8 +20,14 @@
         </div>
       </div>
       <div class="col-md-6 col-md-offset-3">
-        <p class="message">Message:</p>
-        <textarea rows="6" type="text" class="form-control" ng-model="notifyMessage"></textarea>
+        <p class="message">Name:</p> <span class="red-text" ng-show="messageNameReq">*</span>
+        <input rows="6" type="text" class="form-control" ng-model="messageName">
+        <p class="message">Phone Number:</p> <span class="red-text" ng-show="messageNumberReq">*</span>
+        <input rows="6" type="text" class="form-control" ng-model="messageNumber">
+        <p class="message">Email Address:</p> <span class="red-text" ng-show="messageEmailReq">*</span>
+        <input rows="6" type="text" class="form-control" ng-model="messageEmail"> 
+        <p class="message">Message:</p> <span class="red-text" ng-show="messageReq">*</span>
+        <textarea rows="6" type="text" class="form-control" ng-model="message"></textarea>
       </div>
     </div>
     <div class="col-md-8 col-md-offset-4">

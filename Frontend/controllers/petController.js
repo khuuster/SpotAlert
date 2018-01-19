@@ -115,15 +115,22 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     })
   }
 
+  $scope.messageNameReq = false;
+  $scope.messageNumberReq = false;
+  $scope.messageEmailReq = false;
+  $scope.messageReq = false;
+  
   //NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function () {
     var owner = ({
-      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, message: $scope.notifyMessage
+      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     })
+
     userService.setOwner($scope.owner.id);
     userService.messageOwner(owner).then(function(){
-      petService.setCurrentPet(null);
-      $state.go("lostPets");
+      petService.setCurrentPet(null); {
+        $state.go("lostPets");
+      }
     })
   }
 
@@ -149,5 +156,14 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     })
   }
 
+  var fsClient = filestack.init('AVrUbKD1iRt63Dm4iq8S2z');
+  function openPicker() {
+    fsClient.pick({
+      fromSources:["url"]
+    }).then(function(response) {
+      // declare this function to handle response
+      handleFilestack(response);
+    });
+  }
 
 });

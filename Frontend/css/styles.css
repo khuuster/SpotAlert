@@ -265,13 +265,20 @@ img {
   margin-top: 20px;
 }
 
+.map-location {
+  float: right;
+  margin: 0 15px;
+  background: rgba(161, 147, 147, 0.1);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
 .userDashboard {
   text-align: center;
-  font-family: 'Arimo', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 18px;
   color: darkblue;
-  text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .body {

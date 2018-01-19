@@ -66,4 +66,11 @@ app.service("petService", function ($http) {
     this.returnLng = function(){
       return currentLng; 
     }
+
+  // API Key
+  // fb62c84300de048ecb5a27213137ce69
+  // API Secret
+  // ff2332c94437b0f5bd6cb27319aa0012
+
+
 });
