@@ -17,12 +17,14 @@ $scope.petService = petService;
   $scope.lost = function (pet) {
     petService.setCurrentLostPet(pet)
     $state.go("lostUpdate");
+    petService.setCurrentPet(pet)
+    $state.go("lostUpdate");
   }
 
   //CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
   $scope.report = function () {
     var petInfo = ({
-      id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "Lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
+      id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
     })
     petService.updatePetLost(petInfo).then(function(){
       $state.go("lostPets");

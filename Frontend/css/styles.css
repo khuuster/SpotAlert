@@ -60,6 +60,11 @@ blockquote cite:before {
   content: "\2014 \2009";
 }
 
+.image {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .contact {
   text-align: center;
   padding: 8px 0 0 150px;
@@ -178,6 +183,14 @@ img {
   font-family: 'Quicksand', sans-serif;
   font-weight: 800;
   letter-spacing: -0.3px;
+}
+
+.lostPet {
+  text-align: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
 }
 
 .new {
