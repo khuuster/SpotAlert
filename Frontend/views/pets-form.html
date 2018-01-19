@@ -28,9 +28,9 @@
           <div class="row" ng-show="status == 'lost'">
             <p class="lost">If lost, please fill out the following:</p>
             <label class="new">MISSING SINCE:</label>
-            <input type="text" class="form-control" ng-model="missingSince">
+            <input type="text" class="form-control" placeholder="MM/DD/YY" ng-model="missingSince">
             <label class="new">LAST KNOWN LOCATION:</label>
-            <input type="text" class="form-control" ng-model="lastKnownLocation">
+            <input type="text" class="form-control" placeholder="Street Address, City, State, Zip" ng-model="lastKnownLocation">
           </div>
         </div>
         <div class="col-md-11 col-md-offset-1">
