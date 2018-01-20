@@ -7,7 +7,7 @@
         <label class="pet-title">DESCRIPTION:</label>
         <p class="petBody">{{ pets.description }}</p>
         <label class="pet-title">Missing Since:</label>
-        <p class="petBody">{{ pets.lostSince | date:'MM/dd/yyyy' }}</p>
+        <p class="petBody">{{ pets.lostSince | date:'MM/dd/yy' }}</p>
         <label class="pet-title">Last Known Location:</label>
         <p class="petBody">{{ pets.lastKnownLoc }}</p>
         <p><span class="glyphicon glyphicon-map-marker"></span> <a ui-sref="lostPetInfo" ng-click="map(pets.lastKnownLoc)" class="petBody">map location</a></p>

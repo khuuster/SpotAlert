@@ -71,10 +71,16 @@ namespace Backend.Controllers
     [HttpPost]
     public Pet Post ([FromBody] Pet s)
     {
-      s.Id = _context.Pets.Count()+1;
-      _context.Pets.Add(s);
-      _context.SaveChanges(); 
-      return s;
+
+      if (s.Name != null && s.Name != "" && s.Image != null && s.Image != "" && s.Status != null && s.Status != "")
+
+      {
+        s.Id = _context.Pets.Count()+1;
+        _context.Pets.Add(s);
+        _context.SaveChanges(); 
+        return s;
+      }
+      return null;
     }
 
     //PUT api/values/4

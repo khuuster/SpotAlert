@@ -3,15 +3,50 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
 
+  $scope.petNameReq = false;
+  $scope.descriptionReq = false;
+  $scope.imageReq = false;
+  $scope.statusReq = false;
+
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
     var newPet = ({
       Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     })
+
+    if ($scope.petName == "" || $scope.petName == null) {
+      $scope.petNameReq = true;
+    }
+    else {
+      $scope.petNameReq = false;
+    };
+    if ($scope.description == "" || $scope.description == null) {
+      $scope.descriptionReq = true;
+    }
+    else {
+      $scope.descriptionReq = false;
+    };
+    if ($scope.image == "" || $scope.image == null) {
+      $scope.imageReq = true;
+    }
+    else {
+      $scope.imageReq = false;
+    };
+    if ($scope.status == "" || $scope.status == null) {
+      $scope.statusReq = true;
+    }
+    else {
+      $scope.statusReq = false;
+    };
+
+    if ($scope.petName != "" && $scope.petName == null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
+      $state.go("petCreate");
+    }
+
     petService.postPet(newPet);
-    setTimeout(function () {
-      $state.go("pets");
-    }, 500)
+      setTimeout(function () {
+        $state.go("pets");
+      }, 500)
   }
 
   //REPORTS LOST PET TO LIST OF LOST PETS

@@ -1,5 +1,5 @@
 var app = angular.module("spotAlert", ["ui.router"])
-
+  
 app.config(function($stateProvider, $urlRouterProvider){
 
   $urlRouterProvider.otherwise("/");
