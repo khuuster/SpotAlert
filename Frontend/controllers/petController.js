@@ -231,6 +231,10 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     });
 
+    var email = ({
+      From: $scope.messageEmail, FromName: $scope.messageName, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
+    });
+
     if ($scope.messageDate == "" || $scope.messageDate == null) {
       $scope.messageDateReq = true;
     } else {
@@ -258,12 +262,15 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     };
 
     if ($scope.messageDate != "" && $scope.messageDate != null && $scope.messageName != "" && $scope.messageName != null && $scope.messageNumber != "" && $scope.messageNumber != null && $scope.messageEmail != "" && $scope.messageEmail != null && $scope.message != "" && $scope.message != null) {
-      userService.setOwner($scope.owner.id);
-      userService.messageOwner(owner).then(function() {
-        petService.setCurrentPet(null); {
-          $state.go("lostPets");
-        };
-      });
+      userService.sendEmail(email).then(function () {
+        console.log(email);
+        userService.setOwner($scope.owner.id);
+        userService.messageOwner(owner).then(function () {
+          petService.setCurrentPet(null); {
+            $state.go("lostPets");
+          }
+        })
+      })
     };
   };
 
