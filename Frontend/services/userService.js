@@ -73,5 +73,9 @@ app.service("userService", function ($http) {
    this.getUser = function (id) {
       return $http.get("http://localhost:5000/api/users/" + id)
   };
+
+  this.sendEmail = function(email){
+      return $http.post("http://localhost:5000/api/email", email)
+  };
 });
 

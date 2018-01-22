@@ -86,13 +86,13 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.loadAllPets = function () {
     petService.getAllPets().then(function (response) {
       var lostPets = [];
-      for(var i = 0; i < response.data.length; i++){
-        if (response.data[i].status == "lost"){
+      for (var i = 0; i < response.data.length; i++) {
+        if (response.data[i].status == "lost") {
           lostPets.push(response.data[i])
         }
       }
       // console.log(lostPets)
-      $scope.allPets = lostPets; 
+      $scope.allPets = lostPets;
     })
   }
   $scope.loadAllPets();
@@ -159,39 +159,45 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.messageNumberReq = false;
   $scope.messageEmailReq = false;
   $scope.messageReq = false;
-  
+
   //NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function () {
     var owner = ({
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     })
-
-    userService.setOwner($scope.owner.id);
-    userService.messageOwner(owner).then(function(){
-      petService.setCurrentPet(null); {
-        $state.go("lostPets");
-      }
+    var email = ({
+      From: $scope.messageEmail, FromName: $scope.messageName, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
     })
+    userService.sendEmail(email).then(function () {
+      console.log(email);
+      userService.setOwner($scope.owner.id);
+      userService.messageOwner(owner).then(function () {
+        petService.setCurrentPet(null); {
+          $state.go("lostPets");
+        }
+      })
+    })
+
   }
 
   //GOOGLE API MAP FUNCTION
- var initMap = function () {
-   var uluru = { lat: petService.returnLat(), lng: petService.returnLng()};
-  console.log(petService.returnLat(), petService.returnLng())
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: petService.returnLat(), lng: petService.returnLng() },
-          zoom: 18
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    
+  var initMap = function () {
+    var uluru = { lat: petService.returnLat(), lng: petService.returnLng() };
+    console.log(petService.returnLat(), petService.returnLng())
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: petService.returnLat(), lng: petService.returnLng() },
+      zoom: 18
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+
   //MAP BUTTON 
   $scope.map = function (loc) {
     console.log(loc);
-    petService.getLatLong(loc).then(function(){
+    petService.getLatLong(loc).then(function () {
       console.log(loc);
       initMap();
     })
