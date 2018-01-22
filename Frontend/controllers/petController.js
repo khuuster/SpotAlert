@@ -143,23 +143,24 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
 
   //GOOGLE API MAP FUNCTION
  var initMap = function () {
+   var uluru = { lat: petService.returnLat(), lng: petService.returnLng()};
   console.log(petService.returnLat(), petService.returnLng())
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: petService.returnLat(), lng: petService.returnLng() },
+          center: uluru,
           zoom: 17
         });
         var marker = new google.maps.Marker({
-          position: { lat: petService.returnLat(), lng: petService.returnLng() },
+          position: uluru,
           map: map
         });
       }
     
   //MAP BUTTON 
   $scope.map = function (loc) {
+    console.log(loc);
     petService.getLatLong(loc).then(function(){
       console.log(loc);
       initMap();
-
     })
   }
 

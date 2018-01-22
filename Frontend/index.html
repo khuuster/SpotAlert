@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="spotAlert">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css?family=Arapey|Arimo|Cambo|Didact+Gothic|Istok+Web|Karla|Nunito|Poppins|Quicksand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arapey|Arimo|Cambo|Didact+Gothic|Istok+Web|Karla|Nunito|Poppins|Quicksand"
+    rel="stylesheet">
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
   <!-- Custom CSS -->
@@ -19,17 +21,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+
   <script src="https://static.filestackapi.com/v3/filestack.js"></script>
 
+ 
+  
   <title>Spot Alert</title>
 </head>
+
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -40,43 +46,87 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navBarController">
         <ul class="nav navbar-nav">
-          <li><a ui-sref="home" class="navigation">Home</a></li>
+          <li>
+            <a ui-sref="home" class="navigation">Home</a>
+          </li>
           <ul class="nav navbar-nav">
-              <li><a ui-sref="dashboard" class="navigation" ng-hide = "userService.currentUserReturn() == 0">Dashboard <span class="sr-only">(current)</span></a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide = "userService.currentUserReturn() == 0">Pets <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a ui-sref="lostPets" class="navigation" ng-hide = "userService.currentUserReturn() == 0">Lost & Found</a></li>
-                  <li><a ui-sref="pets" class="navigation" ng-hide = "userService.currentUserReturn() == 0">My Pets</a></li>
-                  <li><a ui-sref="petCreate" class="navigation" ng-hide = "userService.currentUserReturn() == 0">Add Pets</a></li>
-                </ul>
-              </li>
-            </ul>
-          
+            <li>
+              <a ui-sref="dashboard" class="navigation" ng-hide="userService.currentUserReturn() == 0">Dashboard
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() == 0">Pets
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a ui-sref="lostPets" class="navigation" ng-hide="userService.currentUserReturn() == 0">Lost & Found</a>
+                </li>
+                <li>
+                  <a ui-sref="pets" class="navigation" ng-hide="userService.currentUserReturn() == 0">My Pets</a>
+                </li>
+                <li>
+                  <a ui-sref="petCreate" class="navigation" ng-hide="userService.currentUserReturn() == 0">Add Pets</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
           <li class="dropdown">
-            <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide = "userService.currentUserReturn() != 0">About Us <span class="caret"></span></a>
+            <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() != 0">About Us
+              <span class="caret"></span>
+            </a>
             <ul class="dropdown-menu">
-              <li><a ui-sref="mission" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Mission</a></li>
-              <li><a ui-sref="vision" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Vision</a></li>
-              <li><a ui-sref="values" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Values</a></li>
+              <li>
+                <a ui-sref="mission" class="navigation" ng-hide="userService.currentUserReturn() != 0">Mission</a>
+              </li>
+              <li>
+                <a ui-sref="vision" class="navigation" ng-hide="userService.currentUserReturn() != 0">Vision</a>
+              </li>
+              <li>
+                <a ui-sref="values" class="navigation" ng-hide="userService.currentUserReturn() != 0">Values</a>
+              </li>
               <li role="separator" class="divider"></li>
-              <li><a ui-sref="contact" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Contact Us</a></li>
-              <li><a ui-sref="developers" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Our Developers</a></li>
+              <li>
+                <a ui-sref="contact" class="navigation" ng-hide="userService.currentUserReturn() != 0">Contact Us</a>
+              </li>
+              <li>
+                <a ui-sref="developers" class="navigation" ng-hide="userService.currentUserReturn() != 0">Our Developers</a>
+              </li>
             </ul>
           </li>
         </ul>
         <ul class="nav navbar-nav">
-          <li class="contact middleNav">Found a missing pet? <strong class="middleNav">Contact us immediately!</strong>
-          <p class="number">1-800-SPOT-PET</p></li>
-        </ul>      
-        <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="userCreate" class="navigation" ng-hide = "userService.currentUserReturn() != 0"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="sr-only">(current)</span></a></li>        
-          <li><a ui-sref="login" class="navigation" ng-hide = "userService.currentUserReturn() != 0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li><a ui-sref="account" class="navigation" ng-hide = "userService.currentUserReturn() == 0"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-          <li><a ui-sref="logout" class="navigation" ng-hide = "userService.currentUserReturn() == 0" ng-click="loggingOut()"><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
+          <li class="contact middleNav">Found a missing pet?
+            <strong class="middleNav">Contact us immediately!</strong>
+            <p class="number">1-800-SPOT-PET</p>
+          </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a ui-sref="userCreate" class="navigation" ng-hide="userService.currentUserReturn() != 0">
+              <span class="glyphicon glyphicon-user"></span> Sign Up
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="login" class="navigation" ng-hide="userService.currentUserReturn() != 0">
+              <span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+          <li>
+            <a ui-sref="account" class="navigation" ng-hide="userService.currentUserReturn() == 0">
+              <span class="glyphicon glyphicon-user"></span> Profile</a>
+          </li>
+          <li>
+            <a ui-sref="logout" class="navigation" ng-hide="userService.currentUserReturn() == 0" ng-click="loggingOut()">
+              <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
   </nav>
   <div ui-view></div>
 
@@ -93,10 +143,10 @@
   <script type="text/javascript" src="./controllers/accountController.js"></script>
   <script type="text/javascript" src="./Controllers/navBarController.js"></script>
 
-   <!-- google map api -->
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ"
-   async defer></script>
 
+ <!-- google map api -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ" async defer></script>
 
 </body>
+
 </html>
