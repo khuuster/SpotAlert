@@ -1,29 +1,29 @@
 app.controller("accountController", function ($scope, $state, $stateParams, $http, userService) {
 
-
-  // loads the current user
+  // LOADS CURRENT USER
   if (userService.currentUserReturn() == 0) {
     $state.go("home");
   };
-  $scope.loadUser = function () {
+  $scope.loadUser = function() {
     userService.getCurrentUserInfo()
-      .then(function (response) {
-        console.log(response.data)
+      .then(function(response) {
+        console.log(response.data);
         $scope.loadedUser = response.data;
       });
   };
+
   $scope.loadUser();
 
-  // this logs out the current user and brings them back to the home page
-  $scope.logout = function () {
+  // LOGS OUT CURRENT USER AND SENDS BACK TO THE HOME PAGE 
+  $scope.logout = function() {
     userService.setCurrentUser(0);
     $state.go("home");
   };
 
-  // Get all user
-  $scope.getUser = function () {
+  // GETS ALL USERS
+  $scope.getUser = function() {
     userService.getUsers()
-      .then(function (response) {
+      .then(function(response) {
         console.log("Users:", response.data)
         $scope.users = response.data;
       }, function (error) {
@@ -32,7 +32,7 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
   };
   $scope.getUser();
 
-  // Get one user by Id
+  // GET ONE USER BY ID
   if (userService.currentUserReturn() == 0 || userService.currentUserReturn() == null) {
     userService.getUserById($stateParams.id, function (user) {
       $scope.user = user;
@@ -48,26 +48,25 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
     });
   };
 
-  // If fields are empty error message in the user form validation (hidden as default)
+  // FIRST NAME, LAST NAME, EMAIL, AND PASSWORD FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
   $scope.firstNameReq = false;
   $scope.lastNameReq = false;
   $scope.emailReq = false;
   $scope.passwordReq = false;
 
-  // If passwords do not match error message in the new user form (hidden as default)
+  // IF PASSWORDS DOESN'T MATCH FORM VALIDATION HIDES ON DEFAULT
   $scope.passwordError = false;
 
-  // Create
+  // CREATE NEW USER
   $scope.addUser = function (user) {
     userService.postUser(user)
-      .then(function (response) {
+      .then(function(response) {
         console.log("New User Added:", response.data);
         console.log("Updated Users:", $scope.users);
       }, function (error) {
         console.log(error);
       });
 
-    // Checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
     if ($scope.user.firstName == "" || $scope.user.firstName == null) {
       $scope.firstNameReq = true;
     } else {
@@ -103,26 +102,21 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
     } else {
       $scope.passwordError = false;
     };
-
-    // Checks if password field matches confirm password field, if it does not match, error message will show, otherwise, it will stay hidden
     if ($scope.user.password != $scope.user.confirmPassword) {
       $scope.passwordError = true;
     } else {
       $scope.passwordError = false;
     };
 
-    // If forms are not empty & passwords do match, register button will proceed to home-login view
     if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
       $state.go("login");
     };
   };
 
-  // Update
-  $scope.updateUser = function (user) {
+  // UPDATE USER
+  $scope.updateUser = function(user) {
     userService.putUser($stateParams.id, user)
-      .then(function (response) {
-
-        // Checks if fields are empty, form validation error message will show, otherwise, it will stay hidden
+      .then(function(response) {
         if ($scope.user.firstName == "" || $scope.user.firstName == null) {
           $scope.firstNameReq = true;
         } else {
@@ -148,15 +142,12 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
         } else {
           $scope.passwordError = false;
         };
-
-        // Checks if password field matches confirm password field, if it does not match, error message will show, otherwise, it will stay hidden
         if ($scope.user.password != $scope.user.confirmPassword) {
           $scope.passwordError = true;
         } else {
           $scope.passwordError = false;
         };
 
-        // If forms are not empty & passwords do match, register button will proceed to home-login view
         if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
           $state.go("account");
         };
@@ -165,13 +156,13 @@ app.controller("accountController", function ($scope, $state, $stateParams, $htt
       });
   };
 
-  // Delete
-  $scope.deleteUser = function () {
+  // DELETE USER
+  $scope.deleteUser = function() {
     userService.delete()
-      .then(function (response) {
+      .then(function(response) {
         console.log(response.data);
         console.log($scope.users);
-        $state.go("home")
+        $state.go("home");
       }, function (error) {
         console.log(error);
       });

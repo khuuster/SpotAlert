@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="spotAlert">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,12 +20,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
- 
-  
   <title>Spot Alert</title>
 </head>
-
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -47,50 +42,25 @@
           <li><a ui-sref="home" class="navigation">Home</a></li>
           <li><a ui-sref="lostPets" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Lost & Found</a></li>
           <ul class="nav navbar-nav">
-            <li>
-              <a ui-sref="dashboard" class="navigation" ng-hide="userService.currentUserReturn() == 0">Dashboard
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
+            <li><a ui-sref="dashboard" class="navigation" ng-hide="userService.currentUserReturn() == 0">Dashboard <span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
-              <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() == 0">Pets
-                <span class="caret"></span>
-              </a>
+              <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() == 0">Pets <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li>
-                  <a ui-sref="lostPets" class="navigation" ng-hide="userService.currentUserReturn() == 0">Lost & Found</a>
-                </li>
-                <li>
-                  <a ui-sref="pets" class="navigation" ng-hide="userService.currentUserReturn() == 0">My Pets</a>
-                </li>
-                <li>
-                  <a ui-sref="petCreate" class="navigation" ng-hide="userService.currentUserReturn() == 0">Add Pets</a>
-                </li>
+                <li><a ui-sref="lostPets" class="navigation" ng-hide="userService.currentUserReturn() == 0">Lost & Found</a></li>
+                <li><a ui-sref="pets" class="navigation" ng-hide="userService.currentUserReturn() == 0">My Pets</a></li>
+                <li><a ui-sref="petCreate" class="navigation" ng-hide="userService.currentUserReturn() == 0">Add Pets</a></li>
               </ul>
             </li>
           </ul>
-
           <li class="dropdown">
-            <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() != 0">About Us
-              <span class="caret"></span>
-            </a>
+            <a class="dropdown-toggle navigation" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ng-hide="userService.currentUserReturn() != 0">About Us <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li>
-                <a ui-sref="mission" class="navigation" ng-hide="userService.currentUserReturn() != 0">Mission</a>
-              </li>
-              <li>
-                <a ui-sref="vision" class="navigation" ng-hide="userService.currentUserReturn() != 0">Vision</a>
-              </li>
-              <li>
-                <a ui-sref="values" class="navigation" ng-hide="userService.currentUserReturn() != 0">Values</a>
-              </li>
+              <li><a ui-sref="mission" class="navigation" ng-hide="userService.currentUserReturn() != 0">Mission</a></li>
+              <li><a ui-sref="vision" class="navigation" ng-hide="userService.currentUserReturn() != 0">Vision</a></li>
+              <li><a ui-sref="values" class="navigation" ng-hide="userService.currentUserReturn() != 0">Values</a></li>
               <li role="separator" class="divider"></li>
-              <li>
-                <a ui-sref="contact" class="navigation" ng-hide="userService.currentUserReturn() != 0">Contact Us</a>
-              </li>
-              <li>
-                <a ui-sref="developers" class="navigation" ng-hide="userService.currentUserReturn() != 0">Our Developers</a>
-              </li>
+              <li><a ui-sref="contact" class="navigation" ng-hide="userService.currentUserReturn() != 0">Contact Us</a></li>
+              <li><a ui-sref="developers" class="navigation" ng-hide="userService.currentUserReturn() != 0">Our Developers</a></li>
             </ul>
           </li>
         </ul>
@@ -101,49 +71,33 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a ui-sref="userCreate" class="navigation" ng-hide="userService.currentUserReturn() != 0">
-              <span class="glyphicon glyphicon-user"></span> Sign Up
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li>
-            <a ui-sref="login" class="navigation" ng-hide="userService.currentUserReturn() != 0">
-              <span class="glyphicon glyphicon-log-in"></span> Login</a>
-          </li>
-          <li>
-            <a ui-sref="account" class="navigation" ng-hide="userService.currentUserReturn() == 0">
-              <span class="glyphicon glyphicon-user"></span> Profile</a>
-          </li>
-          <li>
-            <a ui-sref="logout" class="navigation" ng-hide="userService.currentUserReturn() == 0" ng-click="loggingOut()">
-              <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-          </li>
+          <li><a ui-sref="userCreate" class="navigation" ng-hide="userService.currentUserReturn() != 0"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="sr-only">(current)</span></a></li>
+          <li><a ui-sref="login" class="navigation" ng-hide="userService.currentUserReturn() != 0"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a ui-sref="account" class="navigation" ng-hide="userService.currentUserReturn() == 0"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+          <li><a ui-sref="logout" class="navigation" ng-hide="userService.currentUserReturn() == 0" ng-click="loggingOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
   </nav>
 
+  <!-- UI-VIEW -->
   <div ui-view></div>
 
-  <!-- module -->
+  <!-- MODULE -->
   <script type="text/javascript" src="./app.js"></script>
 
-  <!-- services -->
+  <!-- SERVICES -->
   <script type="text/javascript" src="./services/userService.js"></script>
   <script type="text/javascript" src="./services/petService.js"></script>
 
-  <!-- controllers -->
+  <!-- CONTROLLERS -->
   <script type="text/javascript" src="./controllers/userController.js"></script>
   <script type="text/javascript" src="./controllers/petController.js"></script>
   <script type="text/javascript" src="./controllers/accountController.js"></script>
   <script type="text/javascript" src="./controllers/navBarController.js"></script>
 
-
- <!-- google map api -->
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ" async defer></script>
+  <!-- GOOGLE MAPS API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKGHq0MzAIJPw-VzzVqoIU8YA4PsSRKQQ" async defer></script>
 
 </body>
 

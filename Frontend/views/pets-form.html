@@ -27,9 +27,9 @@
           </div>
           <div class="row" ng-show="status == 'lost'">
             <p class="lost">If lost, please fill out the following:</p>
-            <label for="inputsm" class="new">MISSING SINCE:</label>
+            <label for="inputsm" class="new">MISSING SINCE:</label> <span class="red-text" ng-show="missingReq">*</span>
             <input type="date" class="form-control input-sm" id="inputsm" ng-model="missingSince">
-            <label for="inputsm" class="new">LAST KNOWN LOCATION:</label>
+            <label for="inputsm" class="new">LAST KNOWN LOCATION:</label> <span class="red-text" ng-show="locationReq">*</span>
             <input type="text" class="form-control input-sm" placeholder="Street Address, City, State, Zip" id="inputsm" ng-model="lastKnownLocation">
           </div>
         </div>

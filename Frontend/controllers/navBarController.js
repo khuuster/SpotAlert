@@ -4,6 +4,6 @@ app.controller("navBarController", function ($scope, $state, $stateParams, $http
 
   $scope.loggingOut = function(){
     userService.setCurrentUser(0);
-  }
+  };
 
-})
+});
