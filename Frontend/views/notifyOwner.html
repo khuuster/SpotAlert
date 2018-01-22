@@ -1,38 +1,42 @@
 <div class="container">
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
     <div class="row rows">
-      <h1 class="heading" style="color: red;">NOTIFY THE OWNER</h1>
-      <p class="name" id="owner-name">{{ owner.firstName | uppercase }}</p>
-      <div class="col-md-6">
-        <div class="row">
-          <p class="userInfo">Phone Number:</p>
+      <h1 class="heading" id="notify">NOTIFY THE OWNER</h1> 
+      <div class="col-md-4 col-md-offset-1">
+        <div class="row">        
+          <img src="{{ image }}" alt="image" id="img">
         </div>
-        <div class="row">
-          <p class="userInfo">Primary Address:</p>
+        <div class="notifyPage">
+          <div class="row">
+            <p>Pet Name: {{ petName }}</p>
+          </div>          
+          <div class="row">
+            <p>Owner Name: {{ owner.firstName }} {{ owner.lastName }}</p>
+          </div>  
+          <div class="row">
+            <p>Phone Number: {{ owner.phoneNumber }}</p>
+          </div>
+          <div class="row">
+            <p>Primary Address: {{ owner.address }}</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="row">
-          <p class="userBody">{{ owner.phoneNumber }}</p>
-        </div>
-        <div class="row">
-          <p class="userBody">{{ owner.address }}</p>
+      <div class="col-md-6 col-md-offset-1">
+        <label for="inputsm" class="new">DATE:</label> <span class="red-text" ng-show="messageDateReq">*</span>
+        <input type="date" class="form-control input-sm" id="inputsm" ng-model="messageDate"> 
+        <label for="inputsm" class="new">NAME:</label> <span class="red-text" ng-show="messageNameReq">*</span>
+        <input type="text" class="form-control input-sm" placeholder="Full Name" id="inputsm" ng-model="messageName">
+        <label for="inputsm" class="new">PHONE NUMBER:</label> <span class="red-text" ng-show="messageNumberReq">*</span>
+        <input type="text" class="form-control input-sm" id="inputsm" placeholder="(000) 000-0000" ng-model="messageNumber">
+        <label for="inputsm" class="new">EMAIL ADDRESS:</label> <span class="red-text" ng-show="messageEmailReq">*</span>
+        <input tyle="email" class="form-control input-sm" id="inputsm" placeholder="Email Address" ng-model="messageEmail"> 
+        <label for="inputsm" class="new">MESSAGE:</label> <span class="red-text" ng-show="messageReq">*</span>
+        <textarea rows="6" type="text" class="form-control input-sm" id="inputsm" placeholder="Provide a detailed message for {{ owner.firstName }}'s pet" ng-model="message"></textarea>
+        <div class="notifyPage">
+          <button class="btn btn-primary btn-md" ng-click="notifySubmit()">Submit</button>
+          <button class="btn btn-default btn-md" ui-sref="lostPets" ng-click="petService.setCurrentPet(null)">Cancel</button>
         </div>
       </div>
-      <div class="col-md-6 col-md-offset-3">
-        <p class="message">Name:</p> <span class="red-text" ng-show="messageNameReq">*</span>
-        <input type="text" class="form-control" placeholder="Full Name" ng-model="messageName">
-        <p class="message">Phone Number:</p> <span class="red-text" ng-show="messageNumberReq">*</span>
-        <input type="text" class="form-control" placeholder="(000) 000-0000" ng-model="messageNumber">
-        <p class="message">Email Address:</p> <span class="red-text" ng-show="messageEmailReq">*</span>
-        <input tyle="email" class="form-control" placeholder="Email Address" ng-model="messageEmail"> 
-        <p class="message">Message:</p> <span class="red-text" ng-show="messageReq">*</span>
-        <textarea rows="6" type="text" class="form-control" placeholder="Provide brief message for the pet's owner" ng-model="message"></textarea>
-      </div>
-    </div>
-    <div class="col-md-8 col-md-offset-4">
-      <button class="btn btn-primary btn-md" ng-click="notifySubmit()">Submit</button>
-      <button class="btn btn-default btn-md" ui-sref="lostPets" ng-click="petService.setCurrentPet(null)">Cancel</button>
     </div>
   </div>
 </div>

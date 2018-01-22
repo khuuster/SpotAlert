@@ -6,20 +6,20 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="row rows">
           <div class="row">
-            <label class="new">PET NAME:</label> <span class="red-text" ng-show="petNameReq">*</span>
-            <input type="text" class="form-control" ng-model="petName">
+            <label for="inputsm" class="new">PET NAME:</label> <span class="red-text" ng-show="petNameReq">*</span>
+            <input type="text" class="form-control input-sm" id="inputsm" placeholder="Name pet responds to.." ng-model="petName">
           </div>
           <div class="row">
-            <label class="new">DESCRIPTION:</label> <span class="red-text" ng-show="descriptionReq">*</span>
-            <textarea rows="6" type="text" class="form-control" placeholder="Provide a brief description about your pet" ng-model="description"></textarea>
+            <label for="inputsm" class="new">DESCRIPTION:</label> <span class="red-text" ng-show="descriptionReq">*</span>
+            <textarea rows="6" type="text" class="form-control input-sm" placeholder="Provide a brief description about your pet" id="inputsm" ng-model="description"></textarea>
           </div>
           <div class="row">
-            <label class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
-            <input type="text" class="form-control" ng-model="image">
+            <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
+            <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image">
           </div>
           <div class="row">
-            <label class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>
-            <select class="form-control" ng-model="status">
+            <label for="inputsm" class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>
+            <select class="form-control input-sm" id="inputsm" ng-model="status">
               <option value="">Choose a status</option>
               <option value="lost">lost</option>
               <option value="not lost">not lost</option>
@@ -27,10 +27,10 @@
           </div>
           <div class="row" ng-show="status == 'lost'">
             <p class="lost">If lost, please fill out the following:</p>
-            <label class="new">MISSING SINCE:</label>
-            <input type="date" class="form-control" ng-model="missingSince">
-            <label class="new">LAST KNOWN LOCATION:</label>
-            <input type="text" class="form-control" placeholder="Street Address, City, State, Zip" ng-model="lastKnownLocation">
+            <label for="inputsm" class="new">MISSING SINCE:</label>
+            <input type="date" class="form-control input-sm" id="inputsm" ng-model="missingSince">
+            <label for="inputsm" class="new">LAST KNOWN LOCATION:</label>
+            <input type="text" class="form-control input-sm" placeholder="Street Address, City, State, Zip" id="inputsm" ng-model="lastKnownLocation">
           </div>
         </div>
         <div class="col-md-11 col-md-offset-1">

@@ -39,14 +39,12 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.statusReq = false;
     };
 
-    if ($scope.petName != "" && $scope.petName == null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
-      $state.go("petCreate");
-    }
-
-    petService.postPet(newPet);
+    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
+      petService.postPet(newPet);
       setTimeout(function () {
         $state.go("pets");
       }, 500)
+    }
   }
 
   //REPORTS LOST PET TO LIST OF LOST PETS
@@ -156,7 +154,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $state.go("pets");
     })
   }
-
+  $scope.messageDateReq = false;
   $scope.messageNameReq = false;
   $scope.messageNumberReq = false;
   $scope.messageEmailReq = false;
@@ -165,7 +163,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function () {
     var owner = ({
-      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
+      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     })
 
     userService.setOwner($scope.owner.id);
