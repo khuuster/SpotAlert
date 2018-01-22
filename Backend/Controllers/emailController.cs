@@ -15,7 +15,7 @@ namespace Backend.Controllers
       [HttpPost]
     public void Post([FromBody] Email e)
     {  
-      var client = new SendGridClient("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");
+      var client = new SendGridClient("apikey");
       var from = new EmailAddress(e.From, e.FromName);
       var subject = e.Subject;
       var to = new EmailAddress(e.To, e.UserName);
@@ -23,11 +23,6 @@ namespace Backend.Controllers
       var htmlContent = e.Content;
       var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
       var response = client.SendEmailAsync(msg);
-
     }
-     
-    
-    
   }
-
 }
