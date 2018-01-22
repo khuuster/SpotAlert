@@ -1,8 +1,6 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
-
   // CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
-
   // PET NAME, DESCRIPTION, IMAGE, AND STATUS FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
   $scope.petNameReq = false;
   $scope.descriptionReq = false;
@@ -10,13 +8,11 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.statusReq = false;
   $scope.missingSinceReq = false;
   $scope.lastKNownLocationReq = false;
-
   // ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function() {
     var newPet = ({
       Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     });
-
     if ($scope.petName == "" || $scope.petName == null) {
       $scope.petNameReq = true;
     } else {
@@ -47,7 +43,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.lastKnownLocationReq = false;
     };
-
     if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.postPet(newPet);
       setTimeout(function() {
@@ -55,7 +50,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       }, 500);
     };
   };
-
   // REPORTS LOST PET TO LIST OF LOST PETS
   $scope.lost = function(pet) {
     petService.setCurrentLostPet(pet)
@@ -63,17 +57,14 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     petService.setCurrentPet(pet)
     $state.go("lostUpdate");
   };
-
   // LOST DATE AND LAST KNOWN LOCATION FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
   $scope.missingReq = false;
   $scope.locationReq = false;
-
   // CHANGES PET STATUS TO LOST AND ADDS LAST KNOWN LOCATION
   $scope.report = function() {
     var petInfo = ({
       id: petService.returnLostPet().id, name: petService.returnLostPet().name, image: petService.returnLostPet().image, lastKnownLoc: $scope.lostLocation, status: "lost", lostSince: $scope.lostDate, description: petService.returnLostPet().description, ownerId: petService.returnLostPet().ownerId
     });
-
     if ($scope.lostDate == "" || $scope.lostDate == null) {
       $scope.missingReq = true;
     } else {
@@ -84,7 +75,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.locationReq = false;
     };
-
     if ($scope.lostDate != "" && $scope.lostDate != null && $scope.lostLocation != "" && $scope.lostLocation != null) {
       petService.updatePetLost(petInfo).then(function() {
         // petService.setCurrentPet(null);
@@ -92,7 +82,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       });
     };
   };
-
   // LOADS ALL PETS FOR CURRENT USER
   $scope.loadPets = function() {
     petService.getAllPets()
@@ -106,9 +95,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.myPets = ownerPets;
     });
   };
-
   $scope.loadPets();
-
   // GETS ALL LOST PETS 
   $scope.loadAllPets = function() {
     petService.getAllPets().then(function(response) {
@@ -122,19 +109,15 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.allPets = lostPets; 
     });
   };
-
   $scope.loadAllPets();
-
   // EDITS PET
   $scope.editPet = function(pet) {
     petService.setCurrentPet(pet);
     $state.go("petCreate");
   };
-
   // HIDES PET EDIT BUTTON AND SHOWS ADD BUTTON
   $scope.hidePetEdit = true;
   $scope.hideAddPet = false;
-
   // LOADS PET FORM FOR EDITING
   if (petService.returnCurrentPet() != null) {
     $scope.hidePetEdit = false;
@@ -146,13 +129,11 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     $scope.missingSince = petService.returnCurrentPet().lostSince;
     $scope.lastKnownLocation = petService.returnCurrentPet().lastKnownLoc;
   };
-
   // FOUND PET BUTTON NOTIFY OWNER
   $scope.found = function(pets) {
     petService.setCurrentPet(pets);
     $state.go("notifyOwner");
   };
-
   // GET OWNER FOR LOST PET
   $scope.getOwnerInfo = function() {
     var currentPet = petService.returnCurrentPet();
@@ -160,18 +141,15 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.owner = response.data;
     });
   };
-
   if (petService.returnCurrentPet() != null) {
     $scope.getOwnerInfo();
   };
-
   // UPDATE PET BUTTON 
   $scope.updatePet = function() {
     var updatePet = ({
       id: petService.returnCurrentPet().id,
       Name: $scope.petName, Image: $scope.image, Description: $scope.description, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     });
-
     if ($scope.petName == "" || $scope.petName == null) {
       $scope.petNameReq = true;
     } else {
@@ -202,7 +180,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.lastKnownLocationReq = false;
     };
-
     if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.updatePet(updatePet).then(function() {
         // petService.setCurrentPet(null);
@@ -210,7 +187,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       });
     };
   };
-
   // DELETES PET
   $scope.deletePet = function() {
     petService.deletePet().then(function() {
@@ -218,7 +194,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $state.go("pets");
     });
   };
-
   $scope.messageDateReq = false;
   $scope.messageNameReq = false;
   $scope.messageNumberReq = false;
@@ -230,11 +205,9 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     var owner = ({
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     });
-
     var email = ({
       From: $scope.messageEmail, FromName: $scope.messageName, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
     });
-
     if ($scope.messageDate == "" || $scope.messageDate == null) {
       $scope.messageDateReq = true;
     } else {
@@ -260,7 +233,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.messageReq = false;
     };
-
     if ($scope.messageDate != "" && $scope.messageDate != null && $scope.messageName != "" && $scope.messageName != null && $scope.messageNumber != "" && $scope.messageNumber != null && $scope.messageEmail != "" && $scope.messageEmail != null && $scope.message != "" && $scope.message != null) {
       userService.sendEmail(email).then(function () {
         console.log(email);
@@ -273,7 +245,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       })
     };
   };
-
   // GOOGLE API MAP FUNCTION
   var initMap = function() {
     var uluru = { lat: petService.returnLat(), lng: petService.returnLng() };
@@ -296,5 +267,4 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       initMap();
     });
   };
-
 });
