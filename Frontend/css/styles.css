@@ -223,6 +223,16 @@ li {
 
 .notifyPage {
   margin-top: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+.notifyInfo {
+  font-size: 14px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 5px auto;
 }
 
 #image {
