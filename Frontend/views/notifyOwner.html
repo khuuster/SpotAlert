@@ -7,11 +7,11 @@
           <img src="{{ image }}" alt="image" id="img">
         </div>
         <div class="notifyPage">
-          <div class="row">
-            <p class="notifyInfo">Pet Name: {{ petName }}</p>
-            <p class="notifyInfo">Owner Name: {{ owner.firstName }} {{ owner.lastName }}</p>
-            <p class="notifyInfo">Phone Number: {{ owner.phoneNumber }}</p>
-            <p class="notifyInfo">Address: {{ owner.address }}</p>
+          <div class="col">
+            <p class="notifyInfo"><strong>Pet Name:</strong> {{ petName }}</p>
+            <p class="notifyInfo"><strong>Owner Name:</strong> {{ owner.firstName }} {{ owner.lastName }}</p>
+            <p class="notifyInfo"><strong>Phone Number:</strong> {{ owner.phoneNumber }}</p>
+            <p class="notifyInfo"><strong>Address:</strong> {{ owner.address }}</p>
           </div>
         </div>
       </div>

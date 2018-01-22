@@ -118,9 +118,9 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: "./views/developers.html",
     })    
 
-    //REPORT LAST KNOWN LOCATION FOR PET
-     // LOGOUT
-     .state("lostUpdate", {
+    // REPORT LAST KNOWN LOCATION FOR PET
+    // LOGOUT
+    .state("lostUpdate", {
       url: "/lostupdate",
       templateUrl: "./views/lostUpdate.html",
       controller: "petController"
@@ -133,7 +133,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "userController"
     })    
 
-    // Notify owner page
+    // NOTIFY OWNER PAGE
     .state("notifyOwner", {
       url: "/notifyOwner",
       templateUrl: "./views/notifyOwner.html",
