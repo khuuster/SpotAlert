@@ -2,19 +2,19 @@
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
     <h1 class="heading" style="color: red;">MISSING PETS ALERT</h1>
     <div ng-repeat="pets in allPets">
-      <div class="col-md-6 alert-pets">
+      <div class="col-md-5 col-md-offset-1 alert-pets">
         <p class="pet-header">{{ pets.name }}</p>
         <label class="pet-title">DESCRIPTION:</label>
         <p class="petBody">{{ pets.description }}</p>
         <label class="pet-title">Missing Since:</label>
-        <p class="petBody">{{ pets.lostSince }}</p>
+        <p class="petBody">{{ pets.lostSince | date:'MM/dd/yy' }}</p>
         <label class="pet-title">Last Known Location:</label>
-        <p class="petBody">{{ pets.lastKnownLoc }}</p>
+        <p class="petBody" id="location">{{ pets.lastKnownLoc }}</p>
         <p><span class="glyphicon glyphicon-map-marker"></span> <a ui-sref="lostPetInfo" ng-click="map(pets.lastKnownLoc)" class="petBody">map location</a></p>
-        <button class="btn btn-success btn-sm" ng-click="found(pets)">Click If Found!</button>
+        <button class="btn btn-success btn-sm" ng-click="found(pets)">Click If Found</button>
       </div>
       <div class="col-md-5 alert-pets">
-        <p class="userBody"><img src="{{ pets.image }}" alt=""></p>
+        <p class="userBody"><img id="img" src="{{ pets.image }}" alt=""></p>
       </div>
       <div class="col-md-12">
         <p class="line"></p>

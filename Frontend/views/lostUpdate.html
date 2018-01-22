@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2 background">
     <div class="col-md-5 col-md-offset-1">
       <div class="row image">
-        <img src="{{ image }}" alt="">
+        <img id="img" src="{{ image }}" alt="">
       </div>
       <div class="row rows">
         <p class="lostPet">Hi, I'm {{ petName }} </p>
@@ -15,7 +15,7 @@
           <h4 class="location">Enter pet's last known location:</h4>
           <input type="text" class="form-control" placeholder="Street Address, City, State, Zip" ng-model="lostLocation" style="text-align: center">
           <h4 class="location">When was your pet lost?</h4>
-          <input type="text" class="form-control" placeholder="MM/DD/YY" ng-model="lostDate" style="text-align: center">
+          <input type="date" class="form-control" ng-model="lostDate" style="text-align: center"> 
         </div>
       </div>
       <div class="row rows">

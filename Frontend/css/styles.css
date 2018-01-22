@@ -98,12 +98,9 @@ blockquote cite:before {
   font-size: 16px;
 }
 
-#owner-name {
-  color: rgb(70, 0, 128);
-  letter-spacing: 1.5px;
-  font-family: 'Arapey', sans-serif;
-  font-size: 28px;
-  font-weight: 600;
+#notify {
+  color: red;
+  margin-bottom: 30px;
 }
 
 .messages {
@@ -145,9 +142,12 @@ li {
 
 .pet {
   text-align: center;
+  font-family: arial;
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
 }
 
-img {
+#img {
   width: 250px;
   height: 250px;
   border-radius: 50%;
@@ -163,6 +163,14 @@ img {
 .location {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
+}
+
+#location {
+  text-transform: capitalize;
+}
+
+#address {
+  text-transform: capitalize;
 }
 
 .devs {
@@ -201,6 +209,8 @@ img {
 
 #name {
   font-weight: 800;
+  text-transform: capitalize;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .userInfo {
@@ -209,6 +219,17 @@ img {
   font-family: 'Karla', sans-serif;
   margin-right: 10px;
   text-transform: uppercase;
+}
+
+.notifyPage {
+  margin-top: 10px;
+}
+
+#image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  margin-bottom: 5px;
 }
 
 .pet-title {

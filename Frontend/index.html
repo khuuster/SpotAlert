@@ -22,8 +22,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script src="https://static.filestackapi.com/v3/filestack.js"></script>
-
  
   
   <title>Spot Alert</title>
@@ -46,9 +44,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navBarController">
         <ul class="nav navbar-nav">
-          <li>
-            <a ui-sref="home" class="navigation">Home</a>
-          </li>
+          <li><a ui-sref="home" class="navigation">Home</a></li>
+          <li><a ui-sref="lostPets" class="navigation" ng-hide = "userService.currentUserReturn() != 0">Lost & Found</a></li>
           <ul class="nav navbar-nav">
             <li>
               <a ui-sref="dashboard" class="navigation" ng-hide="userService.currentUserReturn() == 0">Dashboard
@@ -128,6 +125,7 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
+
   <div ui-view></div>
 
   <!-- module -->
@@ -141,7 +139,7 @@
   <script type="text/javascript" src="./controllers/userController.js"></script>
   <script type="text/javascript" src="./controllers/petController.js"></script>
   <script type="text/javascript" src="./controllers/accountController.js"></script>
-  <script type="text/javascript" src="./Controllers/navBarController.js"></script>
+  <script type="text/javascript" src="./controllers/navBarController.js"></script>
 
 
  <!-- google map api -->

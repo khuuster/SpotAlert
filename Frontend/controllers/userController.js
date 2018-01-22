@@ -26,11 +26,6 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.user = user;
       $scope.submitButton = true;
       $scope.heading = "Sign Up";
-      $scope.profileNav = false;
-      $scope.aboutus = false;
-      $scope.dashboard = false;
-      $scope.lostpet = false;
-      $scope.pets = false;
     });
   }
   else {
@@ -38,11 +33,6 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       $scope.user = user;
       $scope.submitButton = false;
       $scope.heading = "Update Account";
-      $scope.profileNav = true;
-      $scope.aboutus = true;
-      $scope.dashboard = true;
-      $scope.lostpet = true;
-      $scope.pets = true;
     });
   };
 
@@ -53,6 +43,8 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
   $scope.phoneReq = false;
   $scope.addressReq = false;
   $scope.passwordReq = false;
+  $scope.confirmPasswordReq = false;
+  $scope.bothPasswordReq = true;
 
   // If passwords do not match error message in the new user form (hidden as default)
   $scope.passwordError = false;
@@ -98,22 +90,20 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
     } else {
       $scope.passwordReq = false;
     };
-    if (($scope.user.password == "" || $scope.user.password == null) && ($scope.user.confirmPassword != "" || $scope.user.confirmPassword != null)) {
-      $scope.passwordError = true;
+    if ($scope.user.confirmPassword == "" || $scope.user.confirmPassword == null) {
+      $scope.confirmPasswordReq = true;
     } else {
-      $scope.passwordError = false;
+      $scope.confirmPasswordReq = false;
     };
-
-    // Checks if password field matches confirm password field, if it does not match, error message will show, otherwise, it will stay hidden
     if ($scope.user.password != $scope.user.confirmPassword) {
-      $scope.passwordError = true;
+      $scope.bothPasswordReq = false;
     } else {
-      $scope.passwordError = false;
-    }
+      $scope.bothPasswordReq = true;
+    };
 
     // If forms are not empty & passwords do match, register button will proceed to home-login view
     if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.address != "" && $scope.user.address != null && $scope.user.phoneNumber != "" && $scope.user.phoneNumber != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
-      $state.go("home");
+      $state.go("login");
     };
   };
 

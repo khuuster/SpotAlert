@@ -3,15 +3,48 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
 
+  $scope.petNameReq = false;
+  $scope.descriptionReq = false;
+  $scope.imageReq = false;
+  $scope.statusReq = false;
+
   //ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function () {
     var newPet = ({
       Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     })
-    petService.postPet(newPet);
-    setTimeout(function () {
-      $state.go("pets");
-    }, 500)
+
+    if ($scope.petName == "" || $scope.petName == null) {
+      $scope.petNameReq = true;
+    }
+    else {
+      $scope.petNameReq = false;
+    };
+    if ($scope.description == "" || $scope.description == null) {
+      $scope.descriptionReq = true;
+    }
+    else {
+      $scope.descriptionReq = false;
+    };
+    if ($scope.image == "" || $scope.image == null) {
+      $scope.imageReq = true;
+    }
+    else {
+      $scope.imageReq = false;
+    };
+    if ($scope.status == "" || $scope.status == null) {
+      $scope.statusReq = true;
+    }
+    else {
+      $scope.statusReq = false;
+    };
+
+    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
+      petService.postPet(newPet);
+      setTimeout(function () {
+        $state.go("pets");
+      }, 500)
+    }
   }
 
   //REPORTS LOST PET TO LIST OF LOST PETS
@@ -121,7 +154,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $state.go("pets");
     })
   }
-
+  $scope.messageDateReq = false;
   $scope.messageNameReq = false;
   $scope.messageNumberReq = false;
   $scope.messageEmailReq = false;
@@ -130,7 +163,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   //NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function () {
     var owner = ({
-      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
+      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
     })
 
     userService.setOwner($scope.owner.id);
@@ -146,8 +179,8 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
    var uluru = { lat: petService.returnLat(), lng: petService.returnLng()};
   console.log(petService.returnLat(), petService.returnLng())
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: uluru,
-          zoom: 17
+          center: { lat: petService.returnLat(), lng: petService.returnLng() },
+          zoom: 18
         });
         var marker = new google.maps.Marker({
           position: uluru,

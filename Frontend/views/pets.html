@@ -2,7 +2,7 @@
   <div class="col-md-12 background">
     <div class="col-md-10 col-md-offset-1">
       <div class="row">
-        <h1 class="heading">MY PETS</h1>
+        <h1 class="heading">{{ owner.firstName | uppercase }} MY PETS</h1>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -14,12 +14,12 @@
           </thead>
           <tbody>
             <tr ng-repeat="pet in myPets">
-              <td class="pet" id="name">{{ pet.name }}</td>
+              <td class="pet" id="name"><img id="image" src="{{ pet.image }}" alt="pet"></br>{{ pet.name }}</td>
               <td class="pet">{{ pet.description | lowercase }}</td>
               <td class="pet">{{ pet.status }}</td>
               <td>
                 <li class="edit"><button class="btn btn-info btn-xs" ng-click="editPet(pet)">Edit</button></li>
-                <li ng-hide="pet.status != 'not lost'"><button class="btn btn-warning btn-xs" ng-click="lost(pet)" >Report Lost</button></li>
+                <li ng-hide="pet.status != 'not lost'"><button class="btn btn-warning btn-xs" ng-click="lost(pet)">Report</button></li>
               </td>
             </tr>
           </tbody>
