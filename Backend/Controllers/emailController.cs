@@ -11,11 +11,17 @@ namespace Backend.Controllers
 {
    [Route("api/email")]
   public class emailController : Controller
-  {
+  { 
+    public emailController()
+    {
+       DotNetEnv.Env.Load();
+    }
+   
       [HttpPost]
     public void Post([FromBody] Email e)
     {  
-      var client = new SendGridClient("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");
+      // var apiKey = System.Environment.GetEnvironmentVariable("KEY"); 
+      var client = new SendGridClient("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");
       var from = new EmailAddress(e.From, e.FromName);
       var subject = e.Subject;
       var to = new EmailAddress(e.To, e.UserName);
@@ -23,11 +29,6 @@ namespace Backend.Controllers
       var htmlContent = e.Content;
       var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
       var response = client.SendEmailAsync(msg);
-
     }
-     
-    
-    
   }
-
 }
