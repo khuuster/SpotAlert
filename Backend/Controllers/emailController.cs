@@ -21,7 +21,7 @@ namespace Backend.Controllers
     public void Post([FromBody] Email e)
     {  
       // var apiKey = System.Environment.GetEnvironmentVariable("KEY"); 
-      var client = new SendGridClient("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");
+      var client = new SendGridClient("");
       var from = new EmailAddress(e.From, e.FromName);
       var subject = e.Subject;
       var to = new EmailAddress(e.To, e.UserName);

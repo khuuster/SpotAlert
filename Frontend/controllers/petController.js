@@ -1,8 +1,5 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
 
-  $scope.run = function() {
-    console.log("image test", $scope.image2);
-  }
   // CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
   // PET NAME, DESCRIPTION, IMAGE, AND STATUS FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
