@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-md-12 background">
+    <div class="row redBkg">
+      <h1 class="heading">Message</h1>
+    </div>
+    <div class="col-md-12 allPets">
+      <div class="col-md-3">
+        <p class="pet-title">Date:</p> <p class="userBody">{{ dashMessage.messageDate | date:'MM/dd/yy' }}</p>
+      </div>
+      <div class="col-md-3">
+        <p class="pet-title">Name:</p> <p class="userBody">{{ dashMessage.messageName }}</p>
+      </div>
+      <div class="col-md-3">
+        <p class="pet-title">Phone:</p> <p class="userBody">{{ dashMessage.messageNumber }}</p>
+      </div>
+      <div class="col-md-3">
+        <p class="pet-title">Email:</p> <p class="userBody">{{ dashMessage.messageEmail }}</p>
+      </div>
+      <div class="col-md-12">
+        <p class="pet-title" style="margin-top: 15px">Regarding: <span class="userBody">{{ dashMessage.messageRegarding }}</span></p>
+      </div>
+      <div class="col-md-12">
+        <p class="pet-title" style="margin-top: 10px">Message:</p>
+        <p class="userBody">{{ dashMessage.message }}</p>
+        <button class="btn btn-danger btn-sm" ng-click="deleteMessage()">Delete</button>
+        <button class="btn btn-default btn-sm" ui-sref="dashboard">Back</button>
+      </div>
+    </div>
+  </div>
+</div>

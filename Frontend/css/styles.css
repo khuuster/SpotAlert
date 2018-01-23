@@ -90,7 +90,7 @@ blockquote cite:before {
 .number {
   font-weight: 800;
   letter-spacing: 1px;
-  color: red;
+  color: rgba(139, 0, 0, 0.7);
   font-size: 18px;
   font-family: 'Nunito', sans-serif;
 }
@@ -101,11 +101,6 @@ blockquote cite:before {
   letter-spacing: .8px;
   font-weight: 800;
   font-size: 16px;
-}
-
-#notify {
-  color: red;
-  margin-bottom: 30px;
 }
 
 .messages {
@@ -119,14 +114,27 @@ blockquote cite:before {
   color: rgba(255, 255, 255, 0.9);
   background: rgba(139, 0, 0, 0.7);
   padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.redBkg2 {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(139, 0, 0, 0.7);
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .title {
   font-family: 'Karla', sans-serif;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: 800;
+  font-size: 35px;
   text-align: center;
+}
+
+.ifFound {
+  text-align: center;
+  margin-top: 5px;
 }
 
 .table-header {
@@ -155,13 +163,21 @@ li {
 #img {
   width: 250px;
   height: 250px;
+  border-radius: 5%;
+}
+
+#img2 {
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+  border: 5px dotted rgba(139, 0, 0, 0.3);
+  margin-bottom: 10px;
 }
 
 .heading {
   font-family: 'Nunito', sans-serif;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   padding-bottom: 10px;
 }
 
@@ -285,6 +301,16 @@ li {
   font-weight: 200;
 }
 
+a.lostfound {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 200;
+  border-bottom: 1px solid;
+}
+
+a.lostfound:hover {
+  text-decoration: none;
+}
+
 .pet-header {
   font-family: 'Arapey', sans-serif;
   text-transform: uppercase;
@@ -301,11 +327,8 @@ li {
 }
 
 .map-location {
-  float: right;
-  margin: 0 15px;
-  background: rgba(161, 147, 147, 0.1);
-  padding: 5px 10px;
-  border-radius: 3px;
+  text-align: center;
+  margin-right: 20px;
 }
 
 .userDashboard {
@@ -314,6 +337,7 @@ li {
   font-size: 18px;
   color: darkblue;
   font-weight: 800;
+  margin-bottom: 30px;
 }
 
 .body {
@@ -323,8 +347,18 @@ li {
 
 .background {
   background: rgba(247, 245, 245, 0.7);
-  padding-top: 15px;
   border-radius: 5px;
+  padding-bottom: 15px;
+}
+
+.background2 {
+  background: rgba(247, 245, 245, 0.7);
+  border-radius: 5px;
+  padding-top: 15px;
+}
+
+.allPets {
+  margin-top: 25px;
 }
 
 .alert-pets {

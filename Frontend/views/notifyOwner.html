@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
-    <div class="row rows">
-      <h1 class="heading" id="notify">NOTIFY THE OWNER</h1> 
+  <div class="col-md-11 col-md-offset-1 background">
+    <div class="row redBkg">
+      <h1 class="heading">Notify The Owner</h1> 
+    </div>
+    <div class="row rows allPets">
       <div class="col-md-5 col-md-offset-1">
         <div class="row">        
-          <img src="{{ image }}" alt="image" id="img">
+          <img src="{{ image }}" alt="image" id="img2">
         </div>
         <div class="notifyPage">
           <div class="col">
@@ -24,6 +26,8 @@
         <input type="text" class="form-control input-sm" id="inputsm" placeholder="(000) 000-0000" ng-model="messageNumber">
         <label for="inputsm" class="new">EMAIL ADDRESS:</label> <span class="red-text" ng-show="messageEmailReq">*</span>
         <input type="email" class="form-control input-sm" id="inputsm" placeholder="Email Address" ng-model="messageEmail"> 
+        <label for="inputsm" class="new">REGARDING:</label> <span class="red-text" ng-show="messageRegardingReq">*</span>
+        <input type="text" class="form-control input-sm" id="inputsm" placeholder="Regarding..." ng-model="messageRegarding"> 
         <label for="inputsm" class="new">MESSAGE:</label> <span class="red-text" ng-show="messageReq">*</span>
         <textarea rows="7" type="text" class="form-control input-sm" id="inputsm" placeholder="Provide a detailed message for {{ owner.firstName }}'s pet" ng-model="message"></textarea>
         <div class="notifyPage">

@@ -200,7 +200,7 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
       })
       userService.putUser(response.data.id, put)
     }).then(function(){
-      $state.go("pets");
+      $state.go("dashboard");
     });
   };
 

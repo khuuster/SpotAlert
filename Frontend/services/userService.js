@@ -53,7 +53,7 @@ app.service("userService", function ($http) {
   };
 
   // CURRENT USER LOGGED IN, 0 MEANS NO ONE IS LOGGED IN 
-  var _currentUserId = 1;
+  var _currentUserId = 0;
 
   // LOADS THE CURRENT USER BY THE ID PASSED IN  
   this.setCurrentUser = function(id) {
