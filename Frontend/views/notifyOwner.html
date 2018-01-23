@@ -27,7 +27,7 @@
         <label for="inputsm" class="new">MESSAGE:</label> <span class="red-text" ng-show="messageReq">*</span>
         <textarea rows="7" type="text" class="form-control input-sm" id="inputsm" placeholder="Provide a detailed message for {{ owner.firstName }}'s pet" ng-model="message"></textarea>
         <div class="notifyPage">
-          <button class="btn btn-primary btn-md" ng-click="notifySubmit()">Submit</button>
+          <button class="btn btn-warning btn-md" ng-click="notifySubmit()">Email</button>
           <button class="btn btn-default btn-md" ui-sref="lostPets" ng-click="petService.setCurrentPet(null)">Cancel</button>
         </div>
       </div>

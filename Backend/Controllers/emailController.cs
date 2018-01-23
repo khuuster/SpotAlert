@@ -10,7 +10,7 @@ using System.Net;
 namespace Backend.Controllers
 {
    [Route("api/email")]
-  public class emailController : Controller
+  public class EmailController : Controller
   {
       [HttpPost]
     public void Post([FromBody] Email e)

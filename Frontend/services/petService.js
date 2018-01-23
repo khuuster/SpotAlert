@@ -60,9 +60,9 @@ app.service("petService", function ($http) {
   };
   
   //RETURNS HELD LAT
-    this.returnLat = function() {
-      return currentLat; 
-    };
+  this.returnLat = function() {
+    return currentLat; 
+  };
 
   //RETURNS HELD LONG
   this.returnLng = function() {

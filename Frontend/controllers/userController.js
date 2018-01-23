@@ -135,13 +135,13 @@ app.controller("userController", function ($scope, $state, $stateParams, $http, 
           $scope.passwordError = false;
         };
         if ($scope.user.password != $scope.user.confirmPassword) {
-          $scope.passwordError = true;
+          $scope.bothPasswordReq = false;
         } else {
-          $scope.passwordError = false;
+          $scope.bothPasswordReq = true;
         };
 
         if ($scope.user.firstName != "" && $scope.user.firstName != null && $scope.user.lastName != "" && $scope.user.lastName != null && $scope.user.email != "" && $scope.user.email != null && $scope.user.password != "" && $scope.user.password != null && $scope.user.confirmPassword != "" && $scope.user.confirmPassword != null && $scope.user.password == $scope.user.confirmPassword) {
-          $state.go("dashboard");
+          $state.go("account");
         };
       }, function(error) {
         console.log(error);

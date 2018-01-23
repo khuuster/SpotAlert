@@ -7,7 +7,7 @@
   padding: 0;
 }
 
-/* Background image */
+/* BACKGROUND IMAGE */
 body {
   margin-top: 65px !important;
   background-image: url("dogbackground.png");
@@ -23,6 +23,7 @@ body {
   position: relative;
 }
 
+/* QUOTATIONS */
 blockquote {
   font-family: Georgia, serif;
   font-size: 18px;
@@ -35,6 +36,7 @@ blockquote {
   color: #383838;
 }
 
+/* QUOTATIONS */
 blockquote:before {
   display: block;
   padding-left: 25px;
@@ -46,18 +48,21 @@ blockquote:before {
   color: #7a7a7a;
 }
 
-.description {
-  margin: 20px;
-}
-
+/* QUOTATIONS */
 blockquote cite {
   color: #999999;
   font-size: 14px;
   display: block;
 }
 
+/* QUOTATIONS */
 blockquote cite:before {
   content: "\2014 \2009";
+}
+
+/* QUOTATIONS DESCRIPTIONS */
+.description {
+  margin: 20px;
 }
 
 .image {
@@ -449,10 +454,35 @@ body {
     border-bottom: 0;
   }
 }
-#map{
+
+#map {
   margin: auto; 
   height: 400px;
   width: 600px; 
   border: 1px solid black; 
   margin-bottom: 20px; 
+}
+
+.thumb {
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
+}
+
+form .progress {
+  line-height: 15px;
+}
+
+.progress {
+  display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
+}
+
+.progress div {
+  font-size: smaller;
+  background: orange;
+  width: 0;
 }

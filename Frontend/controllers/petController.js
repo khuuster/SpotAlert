@@ -1,4 +1,8 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
+
+  $scope.run = function() {
+    console.log("image test", $scope.image2);
+  }
   // CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
   // PET NAME, DESCRIPTION, IMAGE, AND STATUS FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
@@ -11,7 +15,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   // ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function() {
     var newPet = ({
-      Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
+      Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn() 
     });
     if ($scope.petName == "" || $scope.petName == null) {
       $scope.petNameReq = true;
@@ -194,12 +198,12 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $state.go("pets");
     });
   };
+  // MESSAGE DATE, NAME, NUMBER, EMAIL, AND MESSAGE FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
   $scope.messageDateReq = false;
   $scope.messageNameReq = false;
   $scope.messageNumberReq = false;
   $scope.messageEmailReq = false;
   $scope.messageReq = false;
-  
   // NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function() {
     var owner = ({
@@ -258,7 +262,6 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       map: map
     });
   };
-    
   // GOOGLE MAP LOCATION BUTTON 
   $scope.map = function(loc) {
     console.log(loc);
