@@ -15,7 +15,13 @@
           </div>
           <div class="row">
             <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
-            <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image">
+            <!-- <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image"> -->
+
+            <input type="hidden" ng-model="image2" role="uploadcare-uploader" name="content"
+            data-crop="disabled" data-images-only="true" />
+
+            <button class="btn btn-danger" ng-click="run()">Test</button>
+
           </div>
           <div class="row">
             <label for="inputsm" class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>

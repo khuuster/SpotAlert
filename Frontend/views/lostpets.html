@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
     <h1 class="heading" style="color: red;">MISSING PETS ALERT</h1>
-    <div ng-repeat="pets in allPets | orderBy:'lostSince'">
+    <div ng-repeat="pets in allPets">
       <div class="col-md-5 col-md-offset-1 alert-pets">
         <p class="pet-header">{{ pets.name }}</p>
         <label class="pet-title">DESCRIPTION:</label>

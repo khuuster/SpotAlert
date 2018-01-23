@@ -70,13 +70,14 @@ app.service("userService", function ($http) {
     return $http.get("http://localhost:5000/api/users/" + _currentUserId);
   };
 
-   // GET USER BY ID
-   this.getUser = function(id) {
-      return $http.get("http://localhost:5000/api/users/" + id);
+  // GET USER BY ID
+  this.getUser = function(id) {
+    return $http.get("http://localhost:5000/api/users/" + id);
   };
 
   this.sendEmail = function(email){
-      return $http.post("http://localhost:5000/api/email", email)
+    return $http.post("http://localhost:5000/api/email", email);
   };
+
 });
 
