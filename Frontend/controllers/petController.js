@@ -1,8 +1,4 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
-
-  $scope.run = function() {
-    console.log("image test", $scope.image2);
-  }
   // CONNECTS SERVICE TO USE IN HTML FILES
   $scope.petService = petService;
   // PET NAME, DESCRIPTION, IMAGE, AND STATUS FORM VALIDATION (ASTERISK) HIDES ON DEFAULT
@@ -10,8 +6,8 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.descriptionReq = false;
   $scope.imageReq = false;
   $scope.statusReq = false;
-  $scope.missingSinceReq = false;
-  $scope.lastKNownLocationReq = false;
+  $scope.missingReq = false;
+  $scope.locationReq = false;
   // ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function() {
     var newPet = ({
@@ -38,14 +34,14 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.statusReq = false;
     };
     if ($scope.missingSince == "" || $scope.missingSince == null) {
-      $scope.missingSinceReq = true;
+      $scope.missingReq = true;
     } else {
-      $scope.missingSinceReq = false;
+      $scope.missingReq = false;
     };
     if ($scope.lastKnownLocation == "" || $scope.lastKnownLocation == null) {
-      $scope.lastKnownLocationReq = true;
+      $scope.locationReq = true;
     } else {
-      $scope.lastKnownLocationReq = false;
+      $scope.locationReq = false;
     };
     if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.postPet(newPet);
@@ -175,14 +171,14 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       $scope.statusReq = false;
     };
     if ($scope.missingSince == "" || $scope.missingSince == null) {
-      $scope.missingSinceReq = true;
+      $scope.missingReq = true;
     } else {
-      $scope.missingSinceReq = false;
+      $scope.missingReq = false;
     };
     if ($scope.lastKnownLocation == "" || $scope.lastKnownLocation == null) {
-      $scope.lastKnownLocationReq = true;
+      $scope.locationReq = true;
     } else {
-      $scope.lastKnownLocationReq = false;
+      $scope.locationReq = false;
     };
     if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.updatePet(updatePet).then(function() {
@@ -203,14 +199,15 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.messageNameReq = false;
   $scope.messageNumberReq = false;
   $scope.messageEmailReq = false;
+  $scope.messageRegardingReq = false;
   $scope.messageReq = false;
   // NOTIFY SUBMIT BUTTON
   $scope.notifySubmit = function() {
     var owner = ({
-      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, message: $scope.message
+      id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, messageRegarding: $scope.messageRegarding, message: $scope.message
     });
     var email = ({
-      From: $scope.messageEmail, FromName: $scope.messageName, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
+      From: $scope.messageEmail, FromName: $scope.messageName, RE: $scope.messageRegarding, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
     });
     if ($scope.messageDate == "" || $scope.messageDate == null) {
       $scope.messageDateReq = true;
@@ -232,12 +229,17 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.messageEmailReq = false;
     };
+    if ($scope.messageRegarding == "" || $scope.messageRegarding == null) {
+      $scope.messageRegardingReq = true;
+    } else {
+      $scope.messageRegardingReq = false;
+    };
     if ($scope.message == "" || $scope.message == null) {
       $scope.messageReq = true;
     } else {
       $scope.messageReq = false;
     };
-    if ($scope.messageDate != "" && $scope.messageDate != null && $scope.messageName != "" && $scope.messageName != null && $scope.messageNumber != "" && $scope.messageNumber != null && $scope.messageEmail != "" && $scope.messageEmail != null && $scope.message != "" && $scope.message != null) {
+    if ($scope.messageDate != "" && $scope.messageDate != null && $scope.messageName != "" && $scope.messageName != null && $scope.messageNumber != "" && $scope.messageNumber != null && $scope.messageEmail != "" && $scope.messageEmail != null && $scope.messageRegarding != "" && $scope.messageRegarding != null && $scope.message != "" && $scope.message != null) {
       userService.sendEmail(email).then(function () {
         console.log(email);
         userService.setOwner($scope.owner.id);

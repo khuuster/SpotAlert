@@ -20,6 +20,7 @@ namespace Backend.Controllers
         public string MessageNumber { get; set; }
         public string MessageEmail { get; set; }
         public string Message { get; set; }
+        public string MessageRegarding { get; set; }
 
     }
 }

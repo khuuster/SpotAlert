@@ -1,28 +1,35 @@
 <div class="container">
-  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
-    <div class="row rows">
-      <h1 class="heading">DASHBOARD</h1>
-      <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-12 background">
+    <div class="row redBkg">
+      <h1 class="heading">Dashboard</h1>
+    </div>
+    <div class="row rows allPets">
+      <div class="col-md-12">
         <div class="row">
           <p class="userDashboard" ng-hide="dashMessage.message == null">Inbox: New Message</p>
           <p class="userDashboard" ng-hide="dashMessage.message != null">Inbox: No New Message</p>
         </div>
         <div ng-hide="dashMessage.message == null">
-          <div class="col-md-4 col-md-offset-2">
-            <p class="pet-title">Date: </p>
-            <p class="userBody">{{ dashMessage.messageDate | date:'MM/dd/yy' }}</p>
-            <p class="pet-title">Name:</p>
-            <p class="userBody">{{ dashMessage.messageName }}</p>
-            <p class="pet-title">Phone Number:</p>
-            <p class="userBody">{{ dashMessage.messageNumber }}</p>
-            <p class="pet-title">Email Address:</p>
-            <p class="userBody">{{ dashMessage.messageEmail }}</p>
-          </div>
-          <div class="col-md-6">
-            <p class="pet-title">Message:</p>
-            <p class="userBody">{{ dashMessage.message }}</p>
-            <button class="btn btn-danger btn-sm" ng-click="deleteMessage()">Delete</button>
-          </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="text-center">Date</th>
+                <th class="text-center">Sender</th>
+                <th class="text-center">Email Address</th>
+                <th class="text-center">Phone Number</th>
+                <th class="text-center">Regarding</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ui-sref="message({id: user.id})">
+                <td class="text-center">{{ dashMessage.messageDate | date:'MM/dd/yy' }}</td>
+                <td class="text-center">{{ dashMessage.messageName }}</td>
+                <td class="text-center">{{ dashMessage.messageEmail }}</td>
+                <td class="text-center">{{ dashMessage.messageNumber }}</td>
+                <td class="text-center">{{ dashMessage.messageRegarding }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

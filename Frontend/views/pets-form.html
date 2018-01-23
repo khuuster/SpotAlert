@@ -1,50 +1,47 @@
 <div class="container">
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
-    <div class="row rows">
-      <h1 class="heading" ng-show="petService.returnCurrentPet() == null">ADD NEW PET</h1>
-      <h1 class="heading"  ng-show="petService.returnCurrentPet() != null">UPDATE PET</h1>
-      <div class="col-md-6 col-md-offset-3">
-        <div class="row rows">
-          <div class="row">
-            <label for="inputsm" class="new">PET NAME:</label> <span class="red-text" ng-show="petNameReq">*</span>
-            <input type="text" class="form-control input-sm" id="inputsm" placeholder="Name pet responds to.." ng-model="petName">
-          </div>
-          <div class="row">
-            <label for="inputsm" class="new">DESCRIPTION:</label> <span class="red-text" ng-show="descriptionReq">*</span>
-            <textarea rows="6" type="text" class="form-control input-sm" placeholder="Provide a brief description about your pet" id="inputsm" ng-model="description"></textarea>
-          </div>
-          <div class="row">
-            <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
-            <!-- <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image"> -->
-
-            <input type="hidden" ng-model="image2" role="uploadcare-uploader" name="content"
+    <div class="row redBkg">
+      <h1 class="heading" ng-show="petService.returnCurrentPet() == null">Add New Pet</h1>
+      <h1 class="heading"  ng-show="petService.returnCurrentPet() != null">Update Pet</h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3 allPets">
+      <div class="row rows">
+        <div class="row">
+          <label for="inputsm" class="new">PET NAME:</label> <span class="red-text" ng-show="petNameReq">*</span>
+          <input type="text" class="form-control input-sm" id="inputsm" placeholder="Name pet responds to.." ng-model="petName">
+        </div>
+        <div class="row">
+          <label for="inputsm" class="new">DESCRIPTION:</label> <span class="red-text" ng-show="descriptionReq">*</span>
+          <textarea rows="6" type="text" class="form-control input-sm" placeholder="Provide a brief description about your pet" id="inputsm" ng-model="description"></textarea>
+        </div>
+        <div class="row">
+          <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
+          <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image">
+          <!-- <input type="hidden" ng-model="image2" role="uploadcare-uploader" name="content"
             data-crop="disabled" data-images-only="true" />
-
-            <button class="btn btn-danger" ng-click="run()">Test</button>
-
-          </div>
-          <div class="row">
-            <label for="inputsm" class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>
-            <select class="form-control input-sm" id="inputsm" ng-model="status">
-              <option value="">Choose a status</option>
-              <option value="lost">lost</option>
-              <option value="not lost">not lost</option>
-            </select>
-          </div>
-          <div class="row" ng-show="status == 'lost'">
-            <p class="lost">If lost, please fill out the following:</p>
-            <label for="inputsm" class="new">MISSING SINCE:</label> <span class="red-text" ng-show="missingReq">*</span>
-            <input type="date" class="form-control input-sm" id="inputsm" ng-model="missingSince">
-            <label for="inputsm" class="new">LAST KNOWN LOCATION:</label> <span class="red-text" ng-show="locationReq">*</span>
-            <input type="text" class="form-control input-sm" placeholder="Street Address, City, State, Zip" id="inputsm" ng-model="lastKnownLocation">
-          </div>
+          <button class="btn btn-danger" ng-click="run()">Test</button> -->
         </div>
-        <div class="col-md-11 col-md-offset-1">
-          <button class="btn btn-danger" ng-click="deletePet()" ng-show="petService.returnCurrentPet() != null">Delete</button>
-          <button class="btn btn-success" ng-hide="hidePetEdit" ng-click="updatePet()">Update</button>
-          <button class="btn btn-primary btn-md" ng-click="addPet()" ng-hide="hideAddPet">Add Pet</button>
-          <button class="btn btn-default btn-md" ui-sref="pets" ng-click="petService.setCurrentPet(null)">Cancel</button>
+        <div class="row">
+          <label for="inputsm" class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>
+          <select class="form-control input-sm" id="inputsm" ng-model="status">
+            <option value="">Choose a status</option>
+            <option value="lost">lost</option>
+            <option value="not lost">not lost</option>
+          </select>
         </div>
+        <div class="row" ng-show="status == 'lost'">
+          <p class="lost">If lost, please fill out the following:</p>
+          <label for="inputsm" class="new">MISSING SINCE:</label> <span class="red-text" ng-show="missingReq">*</span>
+          <input type="date" class="form-control input-sm" id="inputsm" ng-model="missingSince">
+          <label for="inputsm" class="new">LAST KNOWN LOCATION:</label> <span class="red-text" ng-show="locationReq">*</span>
+          <input type="text" class="form-control input-sm" placeholder="Street Address, City, State, Zip" id="inputsm" ng-model="lastKnownLocation">
+        </div>
+      </div>
+      <div class="col-md-11 col-md-offset-1">
+        <button class="btn btn-danger" ng-click="deletePet()" ng-show="petService.returnCurrentPet() != null">Delete</button>
+        <button class="btn btn-success" ng-hide="hidePetEdit" ng-click="updatePet()">Update</button>
+        <button class="btn btn-primary btn-md" ng-click="addPet()" ng-hide="hideAddPet">Add Pet</button>
+        <button class="btn btn-default btn-md" ui-sref="pets" ng-click="petService.setCurrentPet(null)">Cancel</button>
       </div>
     </div>
   </div>

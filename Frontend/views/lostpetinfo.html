@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
-    <div class="row">
-      <p class="map-location"><a ui-sref="lostPets" class="petBody">Lost Pets</a></p>
+  <div class="col-md-11 col-md-offset-1 background">
+    <div class="row redBkg">
+      <h1 class="heading">Last Seen Here</h1>
     </div>
-    <div>
-      <h1 class="heading">{{ petName }} LAST SEEN HERE</h1>
-    </div>
+    <div class="allPets"></div>
     <div id="map" class="row"></div>
+    <div class="row">
+      <p class="map-location"><span class="fa fa-angle-double-left" aria-hidden="true"></span> <a ui-sref="lostPets" class="lostfound"> lost & found</a></p>
+    </div>
   </div>
 </div>

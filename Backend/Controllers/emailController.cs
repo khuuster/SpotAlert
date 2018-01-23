@@ -15,7 +15,7 @@ namespace Backend.Controllers
       [HttpPost]
     public void Post([FromBody] Email e)
     {  
-      var client = new SendGridClient("apikey");
+      var client = new SendGridClient("apikey"); // replace "apikey" with api key
       var from = new EmailAddress(e.From, e.FromName);
       var subject = e.Subject;
       var to = new EmailAddress(e.To, e.UserName);

@@ -46,6 +46,13 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "userController"
     })
 
+    // USER INDIVIDUAL MESSAGE
+    .state("message", {
+      url: "/message/:id",
+      templateUrl: "./views/message.html",
+      controller: "userController"
+    })    
+
     // PETS LIST VIEW
     .state("pets", {
       url: "/pets",
