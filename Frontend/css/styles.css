@@ -292,13 +292,6 @@ li {
   border-radius: 5px;
   font-size: 12px;
   font-weight: 500;
-
-  /* padding: 8px 20px;
-  background: #337ab7;
-  border: 1px solid #2e6da4;
-  color: #fff;
-  padding: 3px 10px;
-  font-size: 12px; */
 }
 
 .uploader-button .uploadcare--widget__button_type_open:hover {

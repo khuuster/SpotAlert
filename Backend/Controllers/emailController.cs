@@ -10,9 +10,9 @@ using System.Net;
 namespace Backend.Controllers
 {
    [Route("api/email")]
-  public class emailController : Controller
+  public class EmailController : Controller
   { 
-    public emailController()
+    public EmailController()
     {
        DotNetEnv.Env.Load();
     }
