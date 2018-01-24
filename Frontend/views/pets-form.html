@@ -1,3 +1,15 @@
+<!-- <script>
+  UPLOADCARE_PUBLIC_KEY = "8fa1eeade514f62d8ffb";
+  $ = uploadcare.jQuery;
+  $(function() {
+    var widget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
+    widget.onUploadComplete(function(info) {
+      $scope.picInfo = info.cdnUrl;
+      $('.uploaded-url').html(info.cdnUrl);
+    });
+  });
+</script> -->
+
 <div class="container">
   <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
     <div class="row redBkg">
@@ -15,11 +27,13 @@
           <textarea rows="6" type="text" class="form-control input-sm" placeholder="Provide a brief description about your pet" id="inputsm" ng-model="description"></textarea>
         </div>
         <div class="row">
-          <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
-          <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image">
-          <!-- <input type="hidden" ng-model="image2" role="uploadcare-uploader" name="content"
+          <!-- <label for="inputsm" class="new">IMAGE URL:</label> <span class="red-text" ng-show="imageReq">*</span>
+          <input type="text" class="form-control input-sm" id="inputsm" placeholder="http://" ng-model="image"> -->
+          <input type="hidden" ng-model="image2" role="uploadcare-uploader" name="content"
             data-crop="disabled" data-images-only="true" />
-          <button class="btn btn-danger" ng-click="run()">Test</button> -->
+
+
+
         </div>
         <div class="row">
           <label for="inputsm" class="new">STATUS:</label> <span class="red-text" ng-show="statusReq">*</span>
