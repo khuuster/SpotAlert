@@ -50,7 +50,7 @@ blockquote:before {
 
 /* QUOTATIONS */
 blockquote cite {
-  color: #999999;
+  color:rgba(139, 0, 0, 0.7);
   font-size: 14px;
   display: block;
 }
@@ -78,6 +78,11 @@ blockquote cite:before {
   font-family: 'Poppins', sans-serif;
 }
 
+#body {
+  color: darkblue;
+  text-decoration: underline;
+}
+
 .signButton {
   width: 100%;
   margin-top: 10px;
@@ -85,6 +90,11 @@ blockquote cite:before {
 
 .middleNav {
   font-size: 12px;
+}
+
+#well {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .number {
@@ -101,6 +111,7 @@ blockquote cite:before {
   letter-spacing: .8px;
   font-weight: 800;
   font-size: 16px;
+  color: rgba(139, 0, 0, 0.7);
 }
 
 .messages {
@@ -113,17 +124,9 @@ blockquote cite:before {
 .redBkg {
   color: rgba(255, 255, 255, 0.9);
   background: rgba(139, 0, 0, 0.7);
-  padding: 5px;
+  padding: 10px 0 5px 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-}
-
-.redBkg2 {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(139, 0, 0, 0.7);
-  padding: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
 }
 
 .title {
@@ -181,6 +184,15 @@ li {
   padding-bottom: 10px;
 }
 
+.heading2 {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .location {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
@@ -197,6 +209,8 @@ li {
 .devs {
   font-family: 'Nunito', sans-serif;
   text-align: center;
+  margin-top: 25px;
+
 }
 
 .name {
@@ -316,7 +330,8 @@ a.lostfound:hover {
   text-transform: uppercase;
   font-size: 28px;
   letter-spacing: 1.5px;
-  color: rgb(70, 0, 128);
+  color: darkblue;
+  /* color: rgb(70, 0, 128); */
   font-weight: 600;
 }
 
@@ -351,12 +366,6 @@ a.lostfound:hover {
   padding-bottom: 15px;
 }
 
-.background2 {
-  background: rgba(247, 245, 245, 0.7);
-  border-radius: 5px;
-  padding-top: 15px;
-}
-
 .allPets {
   margin-top: 25px;
 }
@@ -366,7 +375,8 @@ a.lostfound:hover {
 }
 
 .line {
-  border: 2px solid rgba(128, 116, 116, 0.2);
+  /* border: 2px solid rgba(128, 116, 116, 0.2); */
+  border: 2px solid rgba(139, 0, 0, 0.2);
   margin: 10px auto;
 }
 
