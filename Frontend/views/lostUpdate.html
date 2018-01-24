@@ -1,15 +1,14 @@
-<div>
-  <div class="col-md-8 col-md-offset-2 background">
-    <div class="col-md-5 col-md-offset-1">
+<div class="container">
+  <div class="col-md-12 background">
+    <div class="col-md-5">
       <div class="row image">
-        <img id="img" src="{{ image }}" alt="">
-      </div>
-      <div class="row rows">
-        <p class="lostPet">Hi, I'm {{ petName }} </p>
+        <img id="img3" src="{{ image }}" alt="pet">
       </div>
     </div>
-    <div class="col-md-6">
-      <h1 class="heading">Update Status</h1>
+    <div class="col-md-7 allPets">
+      <div class="row rows">
+        <h1 class="heading3">Update Status</h1>
+      </div>
       <div class="col-md-10 col-md-offset-1">
         <div class="row rows text-center">
           <label class="location">Enter pet's last known location:</label> <span class="red-text" ng-show="locationReq">*</span>

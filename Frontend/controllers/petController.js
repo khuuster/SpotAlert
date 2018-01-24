@@ -1,10 +1,10 @@
 app.controller("petController", function ($scope, $state, $stateParams, $http, petService, userService) {
-//RETURN CDNURL FOR IMAGE
+  // RETURN CDNURL FOR IMAGE
   $ = uploadcare.jQuery;
   $(function() {
     var widget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
     widget.onUploadComplete(function(info) {
-      $scope.picInfo = info.cdnUrl;
+      $scope.image = info.cdnUrl;
       console.log(info);
       $('.uploaded-url').html(info.cdnUrl);
     });
@@ -21,7 +21,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   // ADDS A NEW PET FOR CURRENT USER
   $scope.addPet = function() {
     var newPet = ({
-      Name: $scope.petName, Description: $scope.description, Image: $scope.picInfo, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn() 
+      Name: $scope.petName, Description: $scope.description, Image: $scope.image, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn() 
     });
     if ($scope.petName == "" || $scope.petName == null) {
       $scope.petNameReq = true;
@@ -33,7 +33,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.descriptionReq = false;
     };
-    if ($scope.picInfo == "" || $scope.picInfo == null) {
+    if ($scope.image == "" || $scope.image == null) {
       $scope.imageReq = true;
     } else {
       $scope.imageReq = false;
@@ -53,7 +53,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.locationReq = false;
     };
-    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.picInfo != "" && $scope.picInfo != null && $scope.status != "" && $scope.status != null) {
+    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.postPet(newPet);
       setTimeout(function() {
         $state.go("pets");
@@ -134,7 +134,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     $scope.hideAddPet = true;
     $scope.petName = petService.returnCurrentPet().name;
     $scope.description = petService.returnCurrentPet().description;
-    $scope.picInfo = petService.returnCurrentPet().image;
+    $scope.image = petService.returnCurrentPet().image;
     $scope.status = petService.returnCurrentPet().status;
     $scope.missingSince = petService.returnCurrentPet().lostSince;
     $scope.lastKnownLocation = petService.returnCurrentPet().lastKnownLoc;
@@ -158,7 +158,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
   $scope.updatePet = function() {
     var updatePet = ({
       id: petService.returnCurrentPet().id,
-      Name: $scope.petName, Image: $scope.picInfo, Description: $scope.description, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
+      Name: $scope.petName, Image: $scope.image, Description: $scope.description, LostSince: $scope.missingSince, LastKnownLoc: $scope.lastKnownLocation, Status: $scope.status, OwnerId: userService.currentUserReturn()
     });
     if ($scope.petName == "" || $scope.petName == null) {
       $scope.petNameReq = true;
@@ -170,7 +170,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.descriptionReq = false;
     };
-    if ($scope.picInfo == "" || $scope.picInfo == null) {
+    if ($scope.image == "" || $scope.image == null) {
       $scope.imageReq = true;
     } else {
       $scope.imageReq = false;
@@ -190,7 +190,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
     } else {
       $scope.locationReq = false;
     };
-    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.picInfo != "" && $scope.picInfo != null && $scope.status != "" && $scope.status != null) {
+    if ($scope.petName != "" && $scope.petName != null && $scope.description != "" && $scope.description != null && $scope.image != "" && $scope.image != null && $scope.status != "" && $scope.status != null) {
       petService.updatePet(updatePet).then(function() {
         // petService.setCurrentPet(null);
         $state.go("pets");
