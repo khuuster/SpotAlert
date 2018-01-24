@@ -20,7 +20,7 @@ namespace Backend.Controllers
       [HttpPost]
     public void Post([FromBody] Email e)
     {  
-      var client = new SendGridClient("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"); // replace "apikey" with api key
+      var client = new SendGridClient("apikey"); // replace "apikey" with api key
       var from = new EmailAddress(e.From, e.FromName);
       var subject = e.Subject;
       var to = new EmailAddress(e.To, e.UserName);
