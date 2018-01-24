@@ -217,7 +217,7 @@ app.controller("petController", function ($scope, $state, $stateParams, $http, p
       id: $scope.owner.id, firstName: $scope.owner.firstName, lastName: $scope.owner.lastName, email: $scope.owner.email, password: $scope.owner.password, phoneNumber: $scope.owner.phoneNumber, address: $scope.owner.address, messageDate: $scope.messageDate, messageName: $scope.messageName, messageNumber: $scope.messageNumber, messageEmail: $scope.messageEmail, messageRegarding: $scope.messageRegarding, message: $scope.message
     });
     var email = ({
-      From: $scope.messageEmail, FromName: $scope.messageName, RE: $scope.messageRegarding, Subject: "Spot Alert Message!", To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
+      From: $scope.messageEmail, FromName: $scope.messageName, Subject: $scope.messageRegarding, To: "khuu.andre@gmail.com", UserName: $scope.owner.firstName + $scope.owner.lastName, Content: $scope.message
     });
     if ($scope.messageDate == "" || $scope.messageDate == null) {
       $scope.messageDateReq = true;
