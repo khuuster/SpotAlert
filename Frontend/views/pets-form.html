@@ -1,16 +1,5 @@
-<!-- <script>
-  UPLOADCARE_PUBLIC_KEY = "8fa1eeade514f62d8ffb";
-  $ = uploadcare.jQuery;
-  $(function() {
-    var widget = uploadcare.SingleWidget('[role=uploadcare-uploader]');
-    widget.onUploadComplete(function(info) {
-      $scope.picInfo = info.cdnUrl;
-      $('.uploaded-url').html(info.cdnUrl);
-    });
-  });
-</script> -->
 <div class="container">
-  <div class="col-md-11 col-md-offset-1 background" style="padding-bottom: 15px;">
+  <div class="col-md-11 col-md-offset-1 background">
     <div class="row redBkg">
       <h1 class="heading" ng-show="petService.returnCurrentPet() == null">Add New Pet</h1>
       <h1 class="heading"  ng-show="petService.returnCurrentPet() != null">Update Pet</h1>
