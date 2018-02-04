@@ -13,6 +13,7 @@ Our Mission is to provide support to pet owners who's pets are missing and to co
 - Utilizes ASP.NET framework for backend data handling.
 
 #Technologies Used
+
 	![alt](images/stack.png)
 	![alt](images/angularjs.jpg)
 	![alt](images/images.jpg)
