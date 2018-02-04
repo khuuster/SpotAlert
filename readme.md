@@ -12,7 +12,7 @@ Our Mission is to provide support to pet owners who's pets are missing and to co
 - Maps from Google Maps api for displaying of lost pet's last known location. 
 - Utilizes ASP.NET framework for backend data handling.
 
-#Technologies Used
+# Technologies Used
 
 	![alt](images/stack.png)
 	![alt](images/angularjs.jpg)
