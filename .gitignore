@@ -1,0 +1,5 @@
+./Backend/.env
+./Backend/bin/
+./Backend/obj/
+./Backend/.vscode/
+.vscode

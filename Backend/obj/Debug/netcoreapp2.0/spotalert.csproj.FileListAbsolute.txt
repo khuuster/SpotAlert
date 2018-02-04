@@ -1,0 +1,3 @@
+C:\Users\ak\Desktop\spotalert\Backend\obj\Debug\netcoreapp2.0\spotalert.csproj.CoreCompileInputs.cache
+C:\Users\ak\Desktop\spotalert\Backend\obj\Debug\netcoreapp2.0\spotalert.AssemblyInfoInputs.cache
+C:\Users\ak\Desktop\spotalert\Backend\obj\Debug\netcoreapp2.0\spotalert.AssemblyInfo.cs
